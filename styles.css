@@ -217,3 +217,18 @@ img, video {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.project-content {
+    display: flex;
+    align-items: center;  /* Vertically centers text with the image */
+    gap: 20px;  /* Adds spacing between the image and text */
+}
+
+.project-content img {
+    flex-shrink: 0;  /* Prevents image from shrinking */
+    border-radius: 5px;
+}
+
+.project-content p {
+    flex: 1;  /* Allows text to take up remaining space */
+}
+
