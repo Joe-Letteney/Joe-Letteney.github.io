@@ -12,6 +12,13 @@ body {
   color: #333;
   padding-top: 60px;
 }
+nav {
+    margin-bottom: 40px; /* Larger gap */
+}
+
+section {
+    padding-top: 20px; /* Extra space above content */
+}
 
 /* Header */
 header {
