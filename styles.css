@@ -135,4 +135,24 @@ footer a:hover {
         width: 100%;
     }
 }
+/* Ensure sections have enough padding and separation */
+section {
+    padding: 60px 40px;  /* Increased padding */
+    margin: 60px auto;   /* Increased margin to separate sections */
+    width: 80%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for project details page specifically */
+#description, #video, #design {
+    padding: 60px;
+    margin-top: 80px; /* Ensures separation from nav */
+}
+
+/* Fix spacing between header and content */
+body {
+    padding-top: 100px; /* Adjusted for fixed header */
+}
 
