@@ -67,6 +67,14 @@
             margin-top: 20px;
         }
     </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const videos = document.querySelectorAll("video");
+        videos.forEach(video => {
+            video.play().catch(error => console.log("Autoplay blocked:", error));
+        });
+    });
+</script>
 </head>
 <body>
     <header>
