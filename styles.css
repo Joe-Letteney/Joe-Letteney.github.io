@@ -13,14 +13,14 @@ body {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.7;
-    background-color: #0a0a0a; /* Deep charcoal gray background */
-    color: #e0e0e0; /* Light gray text */
+    background-color: #1e1e1e; /* Dark gray background */
+    color: #333333; /* Dark gray text */
     padding-top: 80px;
 }
 
 /* Header and Navigation */
 header {
-    background-color: #1a1a1a; /* Darker slate gray */
+    background-color: #2c2c2c; /* Medium dark gray */
     color: #ffffff;
     padding: 20px 40px;
     position: fixed;
@@ -28,7 +28,7 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 nav ul {
@@ -53,7 +53,7 @@ nav ul li a::after {
     display: block;
     width: 0;
     height: 2px;
-    background: #00bcd4; /* Cyan highlight */
+    background: #4caf50; /* Green highlight */
     transition: width 0.3s ease;
     position: absolute;
     left: 0;
@@ -70,22 +70,22 @@ section {
     margin: 40px auto;
     width: 90%;
     max-width: 1100px;
-    background-color: #121212; /* Dark slate background */
+    background-color: #ffffff; /* White background for project sections */
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     transition: box-shadow 0.3s ease;
 }
 
 section:hover {
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 1);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Project Section Specific Styling */
 .project-category {
-    background-color: #181818; /* Dark gray for contrast */
+    background-color: #fafafa; /* Light gray for subtle contrast */
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
 }
 
@@ -94,7 +94,7 @@ section:hover {
 }
 
 h1, h2, h3 {
-    color: #ffffff;
+    color: #1e1e1e;
 }
 
 h1 {
@@ -117,21 +117,21 @@ h3 {
 
 /* Links */
 a {
-    color: #00bcd4; /* Cyan text for links */
+    color: #4caf50; /* Green for links */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #00acc1; /* Slightly darker cyan */
+    color: #43a047; /* Slightly darker green */
 }
 
 /* Project Buttons */
 .project a {
     display: inline-block;
-    background-color: #00bcd4;  /* Vibrant cyan */
-    color: #000000;             /* Black text for contrast */
+    background-color: #4caf50;  /* Green button */
+    color: #ffffff;
     padding: 12px 24px;
     border-radius: 6px;
     font-weight: 600;
@@ -140,8 +140,8 @@ a:hover {
 }
 
 .project a:hover {
-    background-color: #00acc1;
-    transform: translateY(-3px); /* Lift effect */
+    background-color: #43a047; /* Slightly darker green */
+    transform: translateY(-3px);
 }
 
 /* Images and Videos */
@@ -158,7 +158,7 @@ a:hover {
     height: auto;
     border-radius: 8px;
     transition: transform 0.2s ease;
-    border: 2px solid #2c2c2c;
+    border: 2px solid #e0e0e0;
 }
 
 .images img:hover {
@@ -168,7 +168,7 @@ a:hover {
 video {
     max-width: 100%;
     border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
 }
 
@@ -178,63 +178,42 @@ video:hover {
 
 /* Contact Section */
 #contact {
-    background-color: #1a1a1a; /* Keep original background color */
-    color: #ffffff; /* White text */
+    background-color: #2c2c2c;
+    color: #ffffff;
     padding: 40px;
     text-align: center;
     border-radius: 12px;
 }
 
-#contact p {
-    color: #ffffff; /* Ensure paragraph text is white */
-}
-
 #contact a {
-    color: #ffffff; /* Ensure links are white */
+    color: #4caf50;
     font-weight: 500;
 }
 
 #contact a:hover {
-    color: #00acc1; /* Slightly darker cyan for hover */
-}
-
-/* Button Styling for Contact */
-button {
-    background-color: #ffffff; /* White button */
-    color: #1a1a1a; /* Dark text for contrast */
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #f1f1f1; /* Slight off-white on hover */
+    color: #43a047;
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background: #1a1a1a;
+    background: #2c2c2c;
     color: #ffffff;
 }
 
 footer a {
-    color: #00bcd4;
+    color: #4caf50;
 }
 
 footer a:hover {
-    color: #00acc1;
+    color: #43a047;
 }
 
 /* Button Styling */
 button {
-    background-color: #00bcd4;
-    color: #000000;
+    background-color: #4caf50;
+    color: #ffffff;
     padding: 12px 24px;
     border: none;
     border-radius: 6px;
@@ -245,7 +224,7 @@ button {
 }
 
 button:hover {
-    background-color: #00acc1;
+    background-color: #43a047;
 }
 
 /* Responsive Design */
@@ -280,9 +259,8 @@ html {
 
 /* Focus State for Accessibility */
 a:focus, button:focus {
-    outline: 2px solid #00bcd4;
+    outline: 2px solid #4caf50;
     outline-offset: 2px;
 }
-
 
 
