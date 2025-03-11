@@ -13,7 +13,7 @@ body {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.7;
-    background-color: #000000; /* Pure black background */
+    background-color: #0a0a0a; /* Deep charcoal gray background */
     color: #e0e0e0; /* Light gray text */
     padding-top: 80px;
 }
@@ -78,6 +78,19 @@ section {
 
 section:hover {
     box-shadow: 0 6px 24px rgba(0, 0, 0, 1);
+}
+
+/* Project Section Specific Styling */
+.project-category {
+    background-color: #181818; /* Dark gray for contrast */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    transition: transform 0.2s ease;
+}
+
+.project-category:hover {
+    transform: translateY(-4px);
 }
 
 h1, h2, h3 {
@@ -249,5 +262,6 @@ a:focus, button:focus {
     outline: 2px solid #00bcd4;
     outline-offset: 2px;
 }
+
 
 
