@@ -10,7 +10,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #ffffff; /* White background */
     color: #333; /* Dark text for contrast */
-    padding-top: 100px;  /* Space for fixed header */
+    padding-top: 100px; /* Space for fixed header */
 }
 
 /* Header Styling */
@@ -60,12 +60,32 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);  /* Subtle shadow */
 }
 
+/* Distinct Sections */
+#description {
+    background-color: #f9f9f9; /* Light gray background for distinction */
+    border-left: 5px solid #ff6347; /* Accent border on the left */
+}
+
+#video {
+    background-color: #fafafa; /* Slightly different gray background */
+    border-left: 5px solid #4CAF50; /* Green accent border on the left */
+    margin-top: 30px;
+}
+
+#design {
+    background-color: #f0f0f0; /* Lighter gray for this section */
+    border-left: 5px solid #3498db; /* Blue accent border */
+    margin-top: 30px;
+}
+
+/* Section Headers */
 section h1, section h2 {
     color: #333;  /* Dark text for headings */
     font-size: 2rem;
     margin-bottom: 10px;
 }
 
+/* Paragraph Styling */
 section p {
     font-size: 1rem;
     color: #555;  /* Lighter text color for paragraph */
@@ -134,5 +154,4 @@ footer p {
         padding: 10px;
     }
 }
-
 
