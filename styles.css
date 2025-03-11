@@ -185,8 +185,12 @@ video:hover {
     border-radius: 12px;
 }
 
+#contact p {
+    color: #ffffff; /* Ensure paragraph text is white */
+}
+
 #contact a {
-    color: #ffffff; /* White text for links */
+    color: #ffffff; /* Ensure links are white */
     font-weight: 500;
 }
 
@@ -279,4 +283,6 @@ a:focus, button:focus {
     outline: 2px solid #00bcd4;
     outline-offset: 2px;
 }
+
+
 
