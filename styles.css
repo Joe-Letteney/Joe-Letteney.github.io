@@ -179,25 +179,25 @@ video:hover {
 /* Contact Section */
 #contact {
     background-color: #1a1a1a;
-    color: #ffffff;
+    color: #ffffff; /* White text */
     padding: 40px;
     text-align: center;
     border-radius: 12px;
 }
 
 #contact a {
-    color: #00bcd4;
+    color: #ffffff; /* White text for links */
     font-weight: 500;
 }
 
 #contact a:hover {
-    color: #00acc1;
+    color: #00acc1; /* Slightly darker cyan for hover */
 }
 
-/* Updated Contact Button */
-#contact button {
-    background-color: #ffffff; /* White background */
-    color: #000000; /* Black text for contrast */
+/* Button Styling for Contact */
+button {
+    background-color: #ffffff; /* White button */
+    color: #1a1a1a; /* Dark text for contrast */
     padding: 12px 24px;
     border: none;
     border-radius: 6px;
@@ -207,8 +207,8 @@ video:hover {
     transition: background-color 0.3s ease;
 }
 
-#contact button:hover {
-    background-color: #f0f0f0; /* Light gray on hover */
+button:hover {
+    background-color: #f1f1f1; /* Slight off-white on hover */
 }
 
 /* Footer */
@@ -279,4 +279,3 @@ a:focus, button:focus {
     outline: 2px solid #00bcd4;
     outline-offset: 2px;
 }
-
