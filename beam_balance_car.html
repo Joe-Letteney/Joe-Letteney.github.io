@@ -11,44 +11,54 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-    
             </ul>
         </nav>
     </header>
 
-
     <section id="overview">
         <h1>Beam Balance Car Project</h1>
-        <h2><stong>Goal</stong></h2>
-        <p>The goal of this project was to create a small car that could travel a set distance as fast as possible while balancing a one foot beam on top. This involved several design chanllenges including determining the maximum possible acceleration, writing a PID controler that could smoothly translate the desired velocity profile into motor speeds, and designing a car capable of accomplishing all of this.</p>
+        <h2><strong>Goal</strong></h2>
+        <p>The goal of this project was to create a small car that could travel a set distance as fast as possible while balancing a one-foot beam on top. This involved several design challenges, including determining the maximum possible acceleration, writing a PID controller that could smoothly translate the desired velocity profile into motor speeds, and designing a car capable of accomplishing all of this.</p>
     </section>
+
     <section class="project-details">
         <h2><strong>Calculation</strong></h2>
-        <p>The first step in this project was to determine the maximum theoretical acceleration that the car could achieve before the bar tips over. Using moment balance about the edge of the bar we determined it to be 1/12 of the acceleration due to gravity or 32in/s^2. Using this we calculated our velcity given the max possible distnace of ten feet. We then tested the motor we were given for the project and determined that its max speed was 235rev/min. Knowing this we determined that in order to achieve our max acceleration we would need wheels approxiametley 5in in diameter. </p>
+        <p>The first step in this project was to determine the maximum theoretical acceleration that the car could achieve before the bar tips over. Using moment balance about the edge of the bar, we determined it to be 1/12 of the acceleration due to gravity, or 32 in/s². Using this, we calculated our velocity given the maximum possible distance of ten feet. We then tested the motor we were given for the project and determined that its max speed was 235 rev/min. Knowing this, we determined that to achieve our max acceleration, we would need wheels approximately 5 inches in diameter.</p>
     </section>
+
     <section class="project-details">
         <h2><strong>Simulation</strong></h2>
-        <p>The next step was to test our calculated values by ujsing Solidwork's Motion Analysis tool. Starting simple, I set up a simple simulation with bar on top of a plate and then applied an increasing acceleration profile and then ploted the reaction forces holding the bar on top and found the point where one of them went to zero indicating that the bar would fall over at that point. As you can see in the figure below this agrees with our theoretical value.</p>
-        <img src="images/Screenshot 2025-02-19 100642.png" width=800" height="400">
-        <p>Then I set up a more detailed simulation to test our theoretical velocity profile. I modeled a simple cart in Solidworks and then applied the velocity profile confirming that it did indeed go the intended distance and that the bar remained upright throughout.</p>
-        <img src="images/Screenshot 2025-02-27 174014.png" width="800" height="400">
+        <p>The next step was to test our calculated values using SolidWorks’ Motion Analysis tool. To start, I set up a basic simulation with the bar on top of a plate, applied an increasing acceleration profile, and then plotted the reaction forces holding the bar on top. I found the point where one of them went to zero, indicating that the bar would become unstable at that point. As you can see in the figure below, this agrees with our theoretical value.</p>
+        <img src="images/Screenshot_2025-02-19_100642.png" width="800" height="400" alt="Simulation reaction forces graph">
+
+        <p>Next, I set up a more detailed simulation to test our theoretical velocity profile. I modeled a simple cart in SolidWorks and then applied the velocity profile, confirming that it did indeed go the intended distance and that the bar remained upright throughout.</p>
+        <img src="images/Screenshot_2025-02-27_174014.png" width="800" height="400" alt="Cart simulation with velocity profile">
+
         <section id="video">
-        <video width="600" controls autoplay loop muted>
-            <source src="images/Screen Recording 2025-02-27 175345.mp4" type="video/mp4" >
-            Your browser does not support the video tag.
-        </video>
+            <video width="600" controls autoplay loop muted>
+                <source src="images/Screen_Recording_2025-02-27_175345.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
     </section>
+
     <section class="project-details">
         <h2><strong>CAD Design</strong></h2>
-        <p>In order to achieve the features found above I modelded a small car in OnShape. One of the major difficluties in this project is to account for any uneveness in the floor so I opted for the maximum allowed length which was one foot. </p>
-     </section>
+        <p>To achieve the features described above, I modeled a small car in OnShape. One of the major difficulties in this project was accounting for any unevenness in the floor, so I opted for the maximum allowed length, which was one foot.</p>
+    </section>
+
     <section class="project-details">
         <h2><strong>Controller Code</strong></h2>
-        <p>In order to achieve the velocity profile that we determined above, our team wrote a PID controller. This allowed us to achieve a smooth velocity profile which is essential to this problem because dramatic shifts in the elevation profile translate to large eccelerations which would cause the bar to fall over.</p>
+        <p>To achieve the velocity profile that we determined above, our team wrote a PID controller. This allowed us to achieve a smooth velocity profile, which is essential for this problem because dramatic shifts in the elevation profile translate to large accelerations, which would cause the bar to fall over.</p>
         
+        <!-- Arduino Code Download Link -->
+        <p>You can download the Arduino code used for the PID controller below:</p>
+        <a href="files/beam_balance_pid.ino" download="beam_balance_pid.ino">
+            <button>Download Arduino Code</button>
+        </a>
     </section>
+
     <section id="contact">
-        
         <h2>Contact</h2>
         <p>Email: <a href="mailto:letteney@bu.edu">letteney@bu.edu</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a></p>
@@ -57,6 +67,6 @@
     <footer>
         <p>&copy; 2025 Joseph Letteney. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
+
