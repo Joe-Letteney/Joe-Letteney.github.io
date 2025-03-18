@@ -167,3 +167,8 @@ footer p {
   min-width: 200px;
 }
 
+#head-project{
+  border: solid;
+  border-radius: 25px;
+}
+
