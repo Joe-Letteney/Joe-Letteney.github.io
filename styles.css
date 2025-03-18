@@ -167,8 +167,17 @@ footer p {
   min-width: 200px;
 }
 
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between image and text */
+}
+
+.about-text {
+    max-width: 600px; /* Prevent text from stretching too wide */
+}
+
 #head-image {
-  border: solid;
-  border-radius: 25px;
+    border-radius: 12px; /* Optional: Round the corners of the image */
 }
 
