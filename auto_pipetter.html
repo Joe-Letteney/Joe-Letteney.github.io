@@ -18,53 +18,53 @@
     <section id="overview">
         <h1>Automatic Pipetter For 96 Well PCR</h1>
         <h2><strong>Goal</strong></h2>
-        <p>The goal of this project was to make a device with three degrees of freedom that would solve some real world problems. Our group decided to design an automatic pipetter that would be able to dispense liquid quickly and accurately into a 96 well PCR plate. This process is usually done by hand and is long and often tedious. This device is an efficient and cheap solution to this problem.</p>
+        <p>The goal of this project was to make a device with three degrees of freedom that would solve some real-world problems. Our group decided to design an automatic pipetter that would be able to dispense liquid quickly and accurately into a 96-well PCR plate. This process is usually done by hand and is long and often tedious. This device is an efficient and inexpensive solution to this problem.</p>
     </section>
 
     <section class="project-details">
-        <h2><strong>Step 1: One liner stage:</strong></h2>
-        <p>The first step was to create a linear stage capable of moving a small cart in one dimension. To do this we built the frame out of foam and using a stepper motor a lead screw we built the protype below.</p>
-        <img src="images/IMG_7397.jpg" width="800" height="400">
+        <h2><strong>Step 1: One linear stage</strong></h2>
+        <p>The first step was to create a linear stage capable of moving a small cart in one dimension. To do this, we built the frame out of foam and, using a stepper motor and a lead screw, we built the prototype shown below.</p>
+        <img src="images/IMG_7397.jpg" width="800" height="400" alt="Prototype of linear stage">
     </section>
 
     <section class="project-details">
         <h2><strong>Step 2: Three linear stages working together</strong></h2>
-        <p>The next step was to work with two other teams to bring three linear stages together to achieve 3 degrees of freedom. By stacking one linear stage on top of two others and using another stepper motor to control vertaical movment we were able to build a devce that could draw shapes on a piece of paper. Each stage was controlled using G-code.</p>
-        <section id="video">
+        <p>The next step was to work with two other teams to bring three linear stages together to achieve three degrees of freedom. By stacking one linear stage on top of two others and using another stepper motor to control vertical movement, we were able to build a device that could draw shapes on a piece of paper. Each stage was controlled using G-code.</p>
+        <section class="video">
             <video width="600" controls autoplay loop muted>
                 <source src="images/IMG_1978.MOV" type="video/quicktime">
                 Your browser does not support the video tag.
             </video>
         </section>
     </section>
+
     <section class="project-details">
         <h2><strong>Step 3: Design</strong></h2>
-        <p>After getting some expereince with the stepper motors and g-code form the drawing device we started desgining for our automatic pipetter. While my other teamate took the lead on desining the linear stages, I started designing the mechanism that would hold the pipette itself. For this project we were using a  Femto scientific p10 pipette. I started by desining a plate that could hold the pipette and allow it to move up and down. I added a rack and pinion mechanism at the top which would push the button. I then added a rack to the back of the plate so that another stepper motor could move the plate vertically. Below are images of my Solidworks assembly.</p>
-        <img src="images/Screenshot 2025-05-01 190053.png">
-        <img src="images/Screenshot 2025-05-01 190118.png"">
+        <p>After getting some experience with the stepper motors and G-code from the drawing device, we started designing our automatic pipetter. While my teammate took the lead on designing the linear stages, I focused on designing the mechanism that would hold the pipette itself. For this project, we used a Femto Scientific P10 pipette. I designed a plate that could hold the pipette and allow it to move up and down. I added a rack and pinion mechanism at the top to press the button. I also added a rack to the back of the plate so that another stepper motor could move it vertically. Below are images of my SolidWorks assembly.</p>
+        <img src="images/Screenshot 2025-05-01 190053.png" alt="SolidWorks design 1">
+        <img src="images/Screenshot 2025-05-01 190118.png" alt="SolidWorks design 2">
     </section>
 
     <section class="project-details">
         <h2><strong>Step 4: Code</strong></h2>
-        <p>In order to automate this process effectively we needed to generate all of the g-code commands. Since each pipetting into each well requires 13 unique motor commands, rather then writting each command by hand I wrote a python script that could generate all of the commands and write them to a g-code file that we could then use to operate the device using repetier host(a 3D printer software app). Using the python script allowed us to easily and quickly make modifications to what ended up being thousands of commands. You can downlad our phython script below.</p>
+        <p>To automate this process, we needed to generate all of the G-code commands. Since pipetting into each well requires 13 unique motor commands, rather than writing each command by hand, I wrote a Python script that could generate all of the commands and write them to a G-code file. We then used this file to operate the device using Repetier-Host (a 3D printer software app). The Python script allowed us to easily and quickly make modifications to what ended up being thousands of commands. You can download the Python script below.</p>
          <a href="copy_of_me_360_pipette_script.py" download="copy_of_me_360_pipette_script.py">
             <button>Download Python Code</button>
         </a>
     </section>
 
-       <section class="project-details">
-    <h2><strong>Step 5:Testing</strong></h2>
-    <p>The final step in this project was to put everything together and test it. We quickly realized that the motors we had been given did not habe enough torque to move the pipette vertically as it had been designed. In order to overcome this we first tried to adjust the gear ratios in order to maximize the available torque. However, due to constraints in the gemoetry of the system this had limited effect and so we decided to instead replace our large stepper motor with a much smaller toy motor. We also reduced the speed at of the vertical movement in order to increase the contact time. Both of these modifications were able to give us the desired motion. Once we had each of the parts working we began dialing in the exact motion of device by locatin the different wells and holes and finding appropriate step sizes.</p>
-           
-  
-    <section id="video">
-        <video width="600" controls autoplay loop muted>
-            <source src="images/IMG_2031.MOV" type="video/quicktime">
-            <source src="images/IMG_2033.MOV" type="video/quicktime> 
-            Your browser does not support the video tag.
-        </video>
+    <section class="project-details">
+        <h2><strong>Step 5: Testing</strong></h2>
+        <p>The final step was to put everything together and test it. We quickly realized that the motors we had been given did not have enough torque to move the pipette vertically as designed. To overcome this, we first tried adjusting the gear ratios to maximize available torque. However, due to constraints in the system geometry, this had limited effect. So we replaced our large stepper motor with a much smaller toy motor and reduced the speed of vertical movement to increase contact time. These modifications achieved the desired motion. Once all parts were working, we began dialing in the exact motions by locating the different wells and holes and determining appropriate step sizes.</p>
+
+        <section class="video">
+            <video width="600" controls autoplay loop muted>
+                <source src="images/IMG_2031.MOV" type="video/quicktime">
+                <source src="images/IMG_2033.MOV" type="video/quicktime">
+                Your browser does not support the video tag.
+            </video>
+        </section>
     </section>
-</section>
 
     <section id="contact">
         <h2>Contact</h2>
