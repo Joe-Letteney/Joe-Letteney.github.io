@@ -45,11 +45,8 @@
     </section>
 
     <section class="project-details">
-        <h2><strong>Controller Code</strong></h2>
-        <p>To achieve the velocity profile that we determined above, our team wrote a PID controller. This allowed us to achieve a smooth velocity profile, which is essential for this problem because dramatic shifts in the elevation profile translate to large accelerations, which would cause the bar to fall over.</p>
-        
-        <!-- Arduino Code Download Link -->
-        <p>You can see the Arduino code used for the PID controller below:</p>
+        <h2><strong>Step 4: Code</strong></h2>
+        <p>In order to automate this process effectively we needed to generate all of the g-code commands. Since each pipetting into each well requires 13 unique motor commands, rather then writting each command by hand I wrote a python script that could generate all of the commands and write them to a g-code file that we could then use to operate the device using repetier host(a 3D printer software app). Using the python script allowed us to easily and quickly make modifications to what ended up being thousands of commands. You can downlad our phython script below.</p>
         <a href="ME360_5ft_Final.ino" download="beam_balance_pid.ino">
             <button>Download Arduino Code</button>
         </a>
