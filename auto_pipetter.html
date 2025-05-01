@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Pipetter For 96 Well PCR</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <section id="overview">
+        <h1>Automatic Pipetter For 96 Well PCR</h1>
+        <h2><strong>Goal</strong></h2>
+        <p>The goal of this project was to make a device with three degrees of freedom that would solve some real world problems. Our group decided to design an automatic pipetter that would be able to dispense liquid quickly and accurately into a 96 well PCR plate. This process is usually done by hand and is long and often tedious. This device is an efficient and cheap solution to this problem.</p>
+    </section>
+
+    <section class="project-details">
+        <h2><strong>Step 1: One liner stage:</strong></h2>
+        <p>The first step was to create a linear stage capable of moving a small cart in one dimension. To do this we built the frame out of foam and using a stepper motor a lead screw we built the protype below.</p>
+        <img src="images/Screenshot 2025-02-27 174042 - Copy.png" width="800" height="400">
+    </section>
+
+    <section class="project-details">
+        <h2><strong>Simulation</strong></h2>
+        <p>The next step was to test our calculated values using SolidWorks’ Motion Analysis tool. To start, I set up a basic simulation with the bar on top of a plate, applied an increasing acceleration profile, and then plotted the reaction forces holding the bar on top. I found the point where one of them went to zero, indicating that the bar would become unstable at that point. As you can see in the figure below, this agrees with our theoretical value.</p>
+        <img src="images/Screenshot 2025-02-19 100642.png" width="800" height="400">
+
+        <p>Next, I set up a more detailed simulation to test our theoretical velocity profile. I modeled a simple cart in SolidWorks and then applied the velocity profile, confirming that it did indeed go the intended distance and that the bar remained upright throughout.</p>
+        <img src="images/Screenshot 2025-02-27 174014.png" width="800" height="400">
+
+        <section id="video">
+            <video width="600" controls autoplay loop muted>
+                <source src="images/Screen Recording 2025-02-27 175345.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+    </section>
+
+    <section class="project-details">
+        <h2><strong>CAD Design</strong></h2>
+        <p>To achieve the features described above, I modeled a small car in OnShape. One of the major difficulties in this project was accounting for any unevenness in the floor, so I opted for the maximum allowed length, which was one foot. We then 3D printed all of the brackets and the wheels and laser cut our base.</p>
+    </section>
+
+    <section class="project-details">
+        <h2><strong>Controller Code</strong></h2>
+        <p>To achieve the velocity profile that we determined above, our team wrote a PID controller. This allowed us to achieve a smooth velocity profile, which is essential for this problem because dramatic shifts in the elevation profile translate to large accelerations, which would cause the bar to fall over.</p>
+        
+        <!-- Arduino Code Download Link -->
+        <p>You can see the Arduino code used for the PID controller below:</p>
+        <a href="ME360_5ft_Final.ino" download="beam_balance_pid.ino">
+            <button>Download Arduino Code</button>
+        </a>
+    </section>
+
+       <section class="project-details">
+    <h2><strong>Testing</strong></h2>
+    <p>The final step in this project was to put everything together and test it. After running many tests and adjusting the PID values, we were able to get the car to work consistently at a max acceleration of 18 in/s². Despite not being our theoretical maximum, we found that this was the best balance of speed and repeatability, which was crucial for this project.</p>
+  
+    <section id="video">
+        <video width="600" controls autoplay loop muted>
+            <source src="images/IMG_7385.MOV" type="video/mp4">
+            <source src="images/IMG_7385.MOV" type="video/quicktime"> 
+            Your browser does not support the video tag.
+        </video>
+    </section>
+</section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:letteney@bu.edu">letteney@bu.edu</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Joseph Letteney. All rights reserved.</p>
+    </footer>
+</body>
+</html>
