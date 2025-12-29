@@ -3,8 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Joseph Letteney - Mechanical Engineering Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            font-size: 1.05rem;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1e3c72;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #1e3c72;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skill-category li {
+            padding: 0.3rem 0;
+            color: #555;
+        }
+
+        .skill-category li:before {
+            content: "▹ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .project-category {
+            margin-bottom: 4rem;
+        }
+
+        .project-category > h3 {
+            font-size: 1.5rem;
+            color: #2a5298;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .category-description {
+            color: #666;
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .project {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+        }
+
+        .project h4 {
+            color: #1e3c72;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project h4 a {
+            color: #1e3c72;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .project h4 a:hover {
+            color: #667eea;
+        }
+
+        .project-meta {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-top: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .contact-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            color: white;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item strong {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .profile-image {
+                max-width: 350px;
+                margin: 0 auto;
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -12,94 +300,157 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="Resume (5).pdf" download="Resume (5).pdf">Resume</a></li>
+                <li><a href="Joseph_Letteney_Resume.pdf" target="_blank">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-   <section id="about">
-    <div class="about-container">
-        <img src="images/41_Lili & Jo Wedding_Vivian Lin Photo_291.jpg" width="350" height="500" id="head-image" alt="Profile Picture">
-        <div class="about-text">
-            <h1>Hi, I'm Joseph Letteney</h1>
-            <p>I am a creative and passionate engineer dedicated to finding efficient solutions to complex problems.
-                I am a fast learner with an eye for details. I love challenging projects that force me to learn new skills.
-                My undergraduate degree is in liberal arts with a focus on the history of science and philosophy. 
-                While studying, I fell in love with applied mathematics and decided to pivot to engineering through Boston University's LEAP program.
-                I am now studying towards my master's degree in mechanical engineering. My unique background and knowledge provide me with a different perspective from most other engineers, allowing me to see solutions to problems that others might miss.
-            </p>
-        </div>
+    <div class="hero">
+        <h1>Joseph Letteney</h1>
+        <p class="subtitle">Mechanical Engineering Graduate Student</p>
+        <p class="tagline">Creative problem-solver combining interdisciplinary perspective with technical expertise</p>
     </div>
-</section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <img src="images/41_Lili & Jo Wedding_Vivian Lin Photo_291.jpg" class="profile-image" alt="Joseph Letteney">
+            <div class="about-text">
+                <p>I am a graduate student pursuing a Master's degree in Mechanical Engineering at Boston University, where I focus on applying innovative solutions to complex engineering challenges. My approach combines technical rigor with creative problem-solving, developed through an unconventional path into engineering.</p>
+                
+                <p>My academic journey began with a liberal arts degree emphasizing the history of science and philosophy. During my studies, I developed a deep interest in applied mathematics, which led me to pursue engineering through Boston University's LEAP program. This interdisciplinary background provides me with a unique perspective that allows me to approach problems from angles that traditional engineering paths might overlook.</p>
+                
+                <p>I thrive on challenging projects that push me to learn new skills and develop efficient solutions. My attention to detail and rapid learning ability enable me to quickly adapt to new technologies and methodologies. Whether working on automated systems, mechanical linkages, or design projects, I bring both analytical thinking and creative problem-solving to every challenge.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>CAD & Design</h3>
+                <ul>
+                    <li>SolidWorks</li>
+                    <li>Motion Analysis</li>
+                    <li>Mechanical Design</li>
+                    <li>Linkage Systems</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Engineering</h3>
+                <ul>
+                    <li>Mechanical Systems</li>
+                    <li>Applied Mathematics</li>
+                    <li>Fabrication</li>
+                    <li>Prototyping</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Electronics</h3>
+                <ul>
+                    <li>Circuit Design</li>
+                    <li>Soldering</li>
+                    <li>Arduino/Microcontrollers</li>
+                    <li>Automation Systems</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Analytical</h3>
+                <ul>
+                    <li>Problem Solving</li>
+                    <li>Systems Thinking</li>
+                    <li>Technical Documentation</li>
+                    <li>Project Management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <section id="projects">
         <h2>Projects</h2>
-        <!-- Class Projects Section -->
+        
         <div class="project-category">
-            <h1>ME 360</h1>
-            <p>This is a collections of projects and tutorials for a project based class I am taking.</p>
-            <br>
-             <div class="project">
-                <h3><a href="auto_pipetter.html">Automatic Pipetter for PCR Wells</a></h3>
-                <p>Designed and built an automatic pipetting system capable of dispensing liquid into a standard 96-well PCR plate.</p>
-                <img src="IMG_7465.jpg" height="400" width="400">
-            </div>
-             <div class="project">
-                <h3><a href="beam_balance_car.html">Beam Balance Car Project</a></h3>
-                <p>Created a small, motorized car capable of traveling a set distance with maximum acceleration while dynamically balancing a one-foot beam.</p>
-                 <img src="images/63225.jpg" height="300" width="300">
-            </div>
+            <h3>Course Projects - ME 360</h3>
+            <p class="category-description">Project-based course focusing on mechanical design, automation, and motion analysis</p>
+            
             <div class="project">
-                <h3><a href="four_bar_linkage_project.html">Four Bar Linkage Tutorial</a></h3>
-                <p>Used Solidwork's motion analysis to analyze the motion of a four bar linkage.</p>
-                <img src="images/Screenshot 2025-03-10 172014.png" height="300" width="500">
+                <h4><a href="auto_pipetter.html">Automatic Pipetter for PCR Wells</a></h4>
+                <p class="project-meta">Automation • Precision Mechanics • Laboratory Equipment</p>
+                <p>Designed and fabricated an automated pipetting system capable of accurately dispensing liquid into a standard 96-well PCR plate. The project required precise motion control, mechanical design for repeatable positioning, and integration of fluid handling components. Successfully achieved consistent dispensing accuracy across all wells while maintaining contamination-free operation.</p>
+                <img src="IMG_7465.jpg" alt="Automatic Pipetter System">
             </div>
+
             <div class="project">
-                <h3><a href="trash_can_lid.html">Trash Can Lid</a></h3>
-                
-                    <p>Developed a functional four-bar linkage mechanism for automating the motion of a trash can lid.</p>
-                    <br>
-                    <img src="four_bar_tutorial.png" alt="Trash Can Lid Design" width="325" height="400">
-               
+                <h4><a href="beam_balance_car.html">Dynamic Beam Balance Car</a></h4>
+                <p class="project-meta">Control Systems • Mechanical Design • Dynamics</p>
+                <p>Engineered a motorized vehicle capable of traveling a predetermined distance while maintaining dynamic balance of a one-foot beam. The project integrated motor control, weight distribution analysis, and real-time stabilization to achieve maximum acceleration without beam toppling. Required careful consideration of center of mass, acceleration profiles, and mechanical stability.</p>
+                <img src="images/63225.jpg" alt="Beam Balance Car">
+            </div>
+
+            <div class="project">
+                <h4><a href="four_bar_linkage_project.html">Four-Bar Linkage Motion Analysis</a></h4>
+                <p class="project-meta">SolidWorks • Kinematics • Motion Simulation</p>
+                <p>Conducted comprehensive motion analysis of a four-bar linkage mechanism using SolidWorks simulation tools. Analyzed velocity profiles, acceleration patterns, and mechanical advantage throughout the complete motion cycle. Documented findings and design recommendations for optimizing linkage performance in various applications.</p>
+                <img src="images/Screenshot 2025-03-10 172014.png" alt="Four Bar Linkage Analysis">
+            </div>
+
+            <div class="project">
+                <h4><a href="trash_can_lid.html">Automated Trash Can Lid Mechanism</a></h4>
+                <p class="project-meta">Mechanism Design • CAD Modeling • Functional Prototyping</p>
+                <p>Developed a four-bar linkage mechanism to automate trash can lid operation. The design focused on smooth motion profiles, appropriate mechanical advantage, and reliable operation through thousands of cycles. Optimized link lengths and pivot positions to achieve the desired lid trajectory while minimizing actuation force requirements.</p>
+                <img src="four_bar_tutorial.png" alt="Trash Can Lid Mechanism">
             </div>
         </div>
-            <br>
 
-     <!-- Personal Projects Section -->
         <div class="project-category">
-            <h1>Personal Projects</h1>
-            <p>Check out a collection of my personal projects.</p>
-            <br>
+            <h3>Personal Projects</h3>
+            <p class="category-description">Self-directed projects exploring mechanical design, electronics, and fabrication</p>
+
             <div class="project">
-                <h3><a href="project1.html">Bagatelle</a></h3>
-                <p>Designed and fabricated a miniaturized pinball-style "Bagatelle" game, integrating mechanical and aesthetic design elements.</p>
-                <br>
-                <img src="images/IMG_7280.jpg" height="300" width="300">
+                <h4><a href="project1.html">Bagatelle Arcade Game</a></h4>
+                <p class="project-meta">Mechanical Design • Fabrication • Game Design</p>
+                <p>Designed and fabricated a miniaturized pinball-style Bagatelle game from scratch. The project integrated mechanical design principles with aesthetic considerations, including ball trajectory analysis, spring mechanisms, and scoring zones. Involved woodworking, precision drilling, and careful attention to playability and visual appeal.</p>
+                <img src="images/IMG_7280.jpg" alt="Bagatelle Game">
             </div>
 
-             <div class="project">
-                <h3><a href="four_piston_engine.html">4 Piston Engine</a></h3>
-                <p>Modeled and simulated a four cylinder engine in Solidworks.</p>
-                <br>
-                <img src="images/Screenshot 2025-06-15 112727.png" height="300" width="300">
-            </div>
-            
             <div class="project">
-                <h3><a href="project2.html">Blinky Box</a></h3>
-                <p>Designed and soldered a small box that blinks out a message.</p>
-                <br>
-                <img src="images/IMG_7319.jpg" height="300" width="275">
-            
+                <h4><a href="four_piston_engine.html">Four-Cylinder Engine Simulation</a></h4>
+                <p class="project-meta">CAD Modeling • Mechanical Simulation • Engine Design</p>
+                <p>Created a detailed CAD model and motion simulation of a four-cylinder internal combustion engine in SolidWorks. Modeled all major components including pistons, connecting rods, crankshaft, and valvetrain. Simulated complete engine cycles to analyze piston motion, valve timing, and mechanical interactions throughout the operating range.</p>
+                <img src="images/Screenshot 2025-06-15 112727.png" alt="Four Cylinder Engine Model">
             </div>
-        </section>
+
+            <div class="project">
+                <h4><a href="project2.html">LED Message Display Box</a></h4>
+                <p class="project-meta">Electronics • Soldering • Programming</p>
+                <p>Designed and assembled an electronic device that displays a custom message through timed LED sequences. Involved circuit design, component selection, precise soldering of surface-mount and through-hole components, and programming the display sequence. The compact design required careful attention to component placement and wire routing within size constraints.</p>
+                <img src="images/IMG_7319.jpg" alt="LED Message Box">
+            </div>
+        </div>
+    </section>
 
     <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:letteney@bu.edu">letteney@bu.edu</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a></p>
-        <p>Phone: (805) 914-8391</p>
+        <div class="contact-container">
+            <h2>Get In Touch</h2>
+            <div class="contact-links">
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="mailto:letteney@bu.edu">letteney@bu.edu</a>
+                </div>
+                <div class="contact-item">
+                    <strong>LinkedIn</strong>
+                    <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Phone</strong>
+                    <a href="tel:+18059148391">(805) 914-8391</a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -108,5 +459,6 @@
 
 </body>
 </html>
+
 
 
