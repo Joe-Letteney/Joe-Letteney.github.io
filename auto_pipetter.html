@@ -3,98 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automatic Pipetter For 96 Well PCR</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Automatic Pipetter for 96-Well PCR - Joseph Letteney</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            font-size: 1.05rem;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .video-section {
+            text-align: center;
+            margin: 2rem 0 3rem 0;
+        }
+
+        .video-section video,
+        .video-section iframe {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .overview {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+        }
+
+        .overview h2 {
+            color: #1e3c72;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .overview p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .project-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2.5rem;
+        }
+
+        .project-section h2 {
+            color: #1e3c72;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-section p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 1.5rem 0;
+        }
+
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .contact-section h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item strong {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .project-section,
+            .overview {
+                padding: 1.5rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
+
+    <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">← Back to Portfolio</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="overview">
-        <h1>Automatic Pipetter For 96 Well PCR</h1>
-         <section class="video">
+    <div class="hero">
+        <h1>Automatic Pipetter for 96-Well PCR</h1>
+        <p class="subtitle">Automation • Motion Control • Laboratory Equipment</p>
+    </div>
+
+    <div class="container">
+        <div class="video-section">
             <video width="600" controls autoplay loop muted>
                 <source src="images/76594613-1926-425c-8926-82582cd5c9ff.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-        </section>
-        <h2><strong>Goal</strong></h2>
-        <p>The goal of this project was to make a device with three degrees of freedom that would solve some real-world problems. Our group decided to design an automatic pipetter that would be able to dispense liquid quickly and accurately into a 96-well PCR plate. This process is usually done by hand and is long and often tedious. This device is an efficient and inexpensive solution to this problem.</p>
-    </section>
+        </div>
 
-    <section class="project-details">
-        <h2><strong>Step 1: One linear stage</strong></h2>
-        <p>The first step was to create a linear stage capable of moving a small cart in one dimension. To do this, we built the frame out of foam and, using a stepper motor and a lead screw, we built the prototype shown below.</p>
-        <img src="images/IMG_7397.jpg" width="800" height="400" alt="Prototype of linear stage">
-    </section>
+        <div class="overview">
+            <h2>Project Overview</h2>
+            <p>The goal of this project was to design a device with three degrees of freedom that would solve a real-world laboratory challenge. Our team developed an automatic pipetter capable of dispensing liquid quickly and accurately into a 96-well PCR plate. Manual pipetting is time-consuming and tedious, making it an ideal candidate for automation. This device provides an efficient and cost-effective solution to streamline laboratory workflows.</p>
+        </div>
 
-    <section class="project-details">
-        <h2><strong>Step 2: Three linear stages working together</strong></h2>
-        <p>The next step was to work with two other teams to bring three linear stages together to achieve three degrees of freedom. By stacking one linear stage on top of two others and using another stepper motor to control vertical movement, we were able to build a device that could draw shapes on a piece of paper. Each stage was controlled using G-code.</p>
-        <section class="video">
-            <video width="600" controls autoplay loop muted>
-                <source src="images/IMG_1978.MOV" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </section>
-    </section>
+        <div class="project-section">
+            <h2>Step 1: Single Linear Stage</h2>
+            <p>The first step involved creating a linear stage capable of moving a small cart in one dimension. We constructed the frame from foam board and integrated a stepper motor with a lead screw to achieve precise linear motion. This prototype served as the foundation for understanding motion control and mechanical constraints.</p>
+            <img src="images/IMG_7397.jpg" alt="Prototype of single linear stage">
+        </div>
 
-    <section class="project-details">
-        <h2><strong>Step 3: Design</strong></h2>
-        <p>After getting some experience with the stepper motors and G-code from the drawing device, we started designing our automatic pipetter. While my teammate took the lead on designing the linear stages, I focused on designing the mechanism that would hold the pipette itself. For this project, we used a Femto Scientific P10 pipette. I designed a plate that could hold the pipette and allow it to move up and down. I added a rack and pinion mechanism at the top to press the button. I also added a rack to the back of the plate so that another stepper motor could move it vertically. Below are images of my SolidWorks assembly.</p>
-        <img src="images/Screenshot 2025-05-01 190053.png" alt="SolidWorks design 1">
-        <img src="images/Screenshot 2025-05-01 190118.png" alt="SolidWorks design 2">
-    </section>
+        <div class="project-section">
+            <h2>Step 2: Three-Axis Motion System</h2>
+            <p>The next phase required integrating three linear stages to achieve full three-dimensional movement. We collaborated with two other teams to stack one linear stage on top of two others, adding a third stepper motor to control vertical movement. To validate the system, we programmed it to draw shapes on paper using G-code commands. This exercise provided crucial experience with multi-axis coordination and motion control.</p>
+            <div class="video-section">
+                <video width="600" controls autoplay loop muted>
+                    <source src="images/IMG_1978.MOV" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
 
-    <section class="project-details">
-        <h2><strong>Step 4: Code</strong></h2>
-        <p>To automate this process, we needed to generate all of the G-code commands. Since pipetting into each well requires 13 unique motor commands, rather than writing each command by hand, I wrote a Python script that could generate all of the commands and write them to a G-code file. We then used this file to operate the device using Repetier-Host (a 3D printer software app). The Python script allowed us to easily and quickly make modifications to what ended up being thousands of commands. You can download the Python script below.</p>
-         <a href="copy_of_me_360_pipette_script.py" download="copy_of_me_360_pipette_script.py">
-            <button>Download Python Code</button>
-        </a>
-    </section>
+        <div class="project-section">
+            <h2>Step 3: Mechanical Design</h2>
+            <p>With a solid understanding of stepper motors and G-code from the drawing device, we began designing the automatic pipetter system. While my teammate focused on optimizing the linear stages, I took the lead on designing the pipette mounting mechanism. We selected a Femto Scientific P10 pipette for this application.</p>
+            <p>I designed a custom mounting plate that securely holds the pipette while allowing controlled vertical movement. The design incorporates a rack and pinion mechanism at the top to actuate the pipette button with precision. An additional rack mounted to the back of the plate interfaces with another stepper motor to control the vertical axis. Below are the SolidWorks assembly views showing the complete mechanism.</p>
+            <img src="images/Screenshot 2025-05-01 190053.png" alt="SolidWorks design - isometric view">
+            <img src="images/Screenshot 2025-05-01 190118.png" alt="SolidWorks design - detailed view">
+        </div>
 
-    <section class="project-details">
-        <h2><strong>Step 5: Testing</strong></h2>
-        <p>The final step was to put everything together and test it. We quickly realized that the motors we had been given did not have enough torque to move the pipette vertically as designed. To overcome this, we first tried adjusting the gear ratios to maximize available torque. However, due to constraints in the system geometry, this had limited effect. So we replaced our large stepper motor with a much smaller toy motor and reduced the speed of vertical movement to increase contact time. These modifications achieved the desired motion. Once all parts were working, we began dialing in the exact motions by locating the different wells and holes and determining appropriate step sizes.</p>
-       <iframe 
-  src="https://drive.google.com/file/d/16KBDkKgNuotGOrFB2QD-pgC3LCoFygSE/preview" 
-            width="640" 
-  height="480" 
-  allow="autoplay">
-</iframe>
-        <section class="video">
-            <video width="600" controls autoplay loop muted>
-                <source src="images/IMG_2031.MOV" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </section>
-        
-    </section>
-     <section class="project-details">
-        <h2><strong>Step 6: Presentation</strong></h2>
-        <p>After finishing testing the device we presented our project to our professor and fellow students.</p>
-       <iframe src="https://drive.google.com/file/d/1APYfEkShg_0rNnfIM7XqfL8DsNa6fWK3/preview" 
-        width="640" 
-        height="480" 
-        allow="autoplay">
-</iframe>
-       
-        </section>
-        
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:letteney@bu.edu">letteney@bu.edu</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a></p>
-    </section>
+        <div class="project-section">
+            <h2>Step 4: Automation Software</h2>
+            <p>Automating the pipetting process required generating precise G-code commands for each well in the 96-well plate. Since each pipetting operation requires 13 unique motor commands, manually writing code for all wells would be impractical and error-prone. To solve this, I developed a Python script that automatically generates all necessary commands and exports them to a G-code file.</p>
+            <p>We used Repetier-Host, a 3D printer control software, to execute the G-code and operate the device. The Python script proved invaluable as it allowed us to quickly iterate on motion parameters and optimize the thousands of commands required for complete plate coverage.</p>
+            <a href="copy_of_me_360_pipette_script.py" download="copy_of_me_360_pipette_script.py" class="download-button">
+                Download Python Script
+            </a>
+        </div>
+
+        <div class="project-section">
+            <h2>Step 5: Testing and Optimization</h2>
+            <p>During initial testing, we discovered that the original stepper motors lacked sufficient torque to move the pipette vertically as designed. We first attempted to resolve this by adjusting gear ratios to maximize available torque. However, geometric constraints in the system limited the effectiveness of this approach.</p>
+            <p>Our solution was to replace the large stepper motor with a smaller toy motor and reduce the vertical movement speed, increasing contact time and effective torque. These modifications successfully achieved the required motion. We then fine-tuned the system by precisely locating each well position and optimizing step sizes for accurate pipetting across the entire plate.</p>
+            <div class="video-section">
+                <iframe 
+                    src="https://drive.google.com/file/d/16KBDkKgNuotGOrFB2QD-pgC3LCoFygSE/preview" 
+                    width="640" 
+                    height="480" 
+                    allow="autoplay">
+                </iframe>
+            </div>
+            <div class="video-section">
+                <video width="600" controls autoplay loop muted>
+                    <source src="images/IMG_2031.MOV" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Step 6: Final Presentation</h2>
+            <p>After completing testing and optimization, we presented our automated pipetting system to our professor and fellow students, demonstrating the complete functionality and discussing the engineering challenges we overcame during development.</p>
+            <div class="video-section">
+                <iframe 
+                    src="https://drive.google.com/file/d/1APYfEkShg_0rNnfIM7XqfL8DsNa6fWK3/preview" 
+                    width="640" 
+                    height="480" 
+                    allow="autoplay">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Get In Touch</h2>
+            <div class="contact-links">
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="mailto:letteney@bu.edu">letteney@bu.edu</a>
+                </div>
+                <div class="contact-item">
+                    <strong>LinkedIn</strong>
+                    <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2025 Joseph Letteney. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
