@@ -3,11 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beam Balance Car Project</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Beam Balance Car Project - Joseph Letteney</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            font-size: 1.05rem;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1e3c72;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        #contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        #contact h2 {
+            color: white;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+            margin-bottom: 2rem;
+        }
+
+        #contact p {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        #contact a {
+            color: white;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        #contact a:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            img {
+                margin: 1.5rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
+    <header>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -15,63 +213,65 @@
         </nav>
     </header>
 
-    <section id="overview">
+    <div class="hero">
         <h1>Beam Balance Car Project</h1>
-        <h2><strong>Goal</strong></h2>
+        <p class="subtitle">Control Systems • Mechanical Design • Dynamics</p>
+    </div>
+
+    <section id="overview">
+        <h2>Goal</h2>
         <p>The goal of this project was to create a small car that could travel a set distance as fast as possible while balancing a one-foot beam on top. This involved several design challenges, including determining the maximum possible acceleration, writing a PID controller that could smoothly translate the desired velocity profile into motor speeds, and designing a car capable of accomplishing all of this.</p>
     </section>
 
     <section class="project-details">
-        <h2><strong>Calculation</strong></h2>
-        <p>The first step in this project was to determine the maximum theoretical acceleration that the car could achieve before the bar tips over. Using moment balance about the edge of the bar, we determined it to be 1/12 of the acceleration due to gravity, or 32 in/s². Using this, we calculated our velocity given the maximum possible distance of ten feet. We then tested the motor we were given for the project and determined that its max speed was 235 rev/min. Knowing this, we determined that to achieve our max acceleration, we would need wheels approximately 5 inches in diameter.
-        Finally using our maximum acceleration we determined the ideal velocity profile for ten feet as shown below.</p>
-        <img src="images/Screenshot 2025-02-27 174042 - Copy.png" width="800" height="400">
+        <h2>Calculation</h2>
+        <p>The first step in this project was to determine the maximum theoretical acceleration that the car could achieve before the bar tips over. Using moment balance about the edge of the bar, we determined it to be 1/12 of the acceleration due to gravity, or 32 in/s². Using this, we calculated our velocity given the maximum possible distance of ten feet. We then tested the motor we were given for the project and determined that its max speed was 235 rev/min. Knowing this, we determined that to achieve our max acceleration, we would need wheels approximately 5 inches in diameter. Finally using our maximum acceleration we determined the ideal velocity profile for ten feet as shown below.</p>
+        <img src="images/Screenshot 2025-02-27 174042 - Copy.png" alt="Velocity profile calculation">
     </section>
 
     <section class="project-details">
-        <h2><strong>Simulation</strong></h2>
-        <p>The next step was to test our calculated values using SolidWorks’ Motion Analysis tool. To start, I set up a basic simulation with the bar on top of a plate, applied an increasing acceleration profile, and then plotted the reaction forces holding the bar on top. I found the point where one of them went to zero, indicating that the bar would become unstable at that point. As you can see in the figure below, this agrees with our theoretical value.</p>
-        <img src="images/Screenshot 2025-02-19 100642.png" width="800" height="400">
+        <h2>Simulation</h2>
+        <p>The next step was to test our calculated values using SolidWorks' Motion Analysis tool. To start, I set up a basic simulation with the bar on top of a plate, applied an increasing acceleration profile, and then plotted the reaction forces holding the bar on top. I found the point where one of them went to zero, indicating that the bar would become unstable at that point. As you can see in the figure below, this agrees with our theoretical value.</p>
+        <img src="images/Screenshot 2025-02-19 100642.png" alt="Reaction force simulation">
 
         <p>Next, I set up a more detailed simulation to test our theoretical velocity profile. I modeled a simple cart in SolidWorks and then applied the velocity profile, confirming that it did indeed go the intended distance and that the bar remained upright throughout.</p>
-        <img src="images/Screenshot 2025-02-27 174014.png" width="800" height="400">
+        <img src="images/Screenshot 2025-02-27 174014.png" alt="Detailed simulation setup">
 
-        <section id="video">
+        <div class="video-container">
             <video width="600" controls autoplay loop muted>
                 <source src="images/Screen Recording 2025-02-27 175345.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-        </section>
+        </div>
     </section>
 
     <section class="project-details">
-        <h2><strong>CAD Design</strong></h2>
+        <h2>CAD Design</h2>
         <p>To achieve the features described above, I modeled a small car in OnShape. One of the major difficulties in this project was accounting for any unevenness in the floor, so I opted for the maximum allowed length, which was one foot. We then 3D printed all of the brackets and the wheels and laser cut our base.</p>
     </section>
 
     <section class="project-details">
-        <h2><strong>Controller Code</strong></h2>
+        <h2>Controller Code</h2>
         <p>To achieve the velocity profile that we determined above, our team wrote a PID controller. This allowed us to achieve a smooth velocity profile, which is essential for this problem because dramatic shifts in the elevation profile translate to large accelerations, which would cause the bar to fall over.</p>
         
-        <!-- Arduino Code Download Link -->
         <p>You can see the Arduino code used for the PID controller below:</p>
-        <a href="ME360_5ft_Final.ino" download="beam_balance_pid.ino">
+        <a href="ME360_5ft_Final.ino" download="beam_balance_pid.ino" class="download-link">
             <button>Download Arduino Code</button>
         </a>
     </section>
 
-       <section class="project-details">
-    <h2><strong>Testing</strong></h2>
-    <p>The final step in this project was to put everything together and test it. After running many tests and adjusting the PID values, we were able to get the car to work consistently at a max acceleration of 18 in/s². Despite not being our theoretical maximum, we found that this was the best balance of speed and repeatability, which was crucial for this project.</p>
+    <section class="project-details">
+        <h2>Testing</h2>
+        <p>The final step in this project was to put everything together and test it. After running many tests and adjusting the PID values, we were able to get the car to work consistently at a max acceleration of 18 in/s². Despite not being our theoretical maximum, we found that this was the best balance of speed and repeatability, which was crucial for this project.</p>
   
-    <section id="video">
-        <video width="600" controls autoplay loop muted>
-            <source src="images/IMG_7385.MOV" type="video/mp4">
-            <source src="images/IMG_7385.MOV" type="video/quicktime"> 
-            Your browser does not support the video tag.
-        </video>
+        <div class="video-container">
+            <video width="600" controls autoplay loop muted>
+                <source src="images/IMG_7385.MOV" type="video/mp4">
+                <source src="images/IMG_7385.MOV" type="video/quicktime"> 
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </section>
-</section>
 
     <section id="contact">
         <h2>Contact</h2>
