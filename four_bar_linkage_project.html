@@ -3,8 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Four Bar Linkage Project</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Four-Bar Linkage Motion Analysis - Joseph Letteney</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            font-size: 1.05rem;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1e3c72;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        ol {
+            margin-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        ol li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #764ba2;
+        }
+
+        .download-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .download-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+
+        #contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        #contact h2 {
+            color: white;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+            margin-bottom: 2rem;
+        }
+
+        #contact p {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        #contact a {
+            color: white;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        #contact a:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            ol {
+                margin-left: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -16,42 +213,60 @@
         </nav>
     </header>
 
+    <div class="hero">
+        <h1>Four-Bar Linkage Motion Analysis</h1>
+        <p class="subtitle">SolidWorks • Kinematics • Motion Simulation</p>
+    </div>
+
     <section id="project-details">
-        <h1>Four Bar Linkage Tutorial</h1>
-        <h2><strong>Goal:</strong></h2>
-        <p>The goal of this project was to become familair with Solidwork's motion analyis feature. This included making sure that the parts are properly constraind so that the system has the correct degrees of freedom and then using the results to analyize the motion of the system.</p>
+        <h2>Goal</h2>
+        <p>The goal of this project was to become familiar with SolidWorks' motion analysis feature. This included making sure that the parts are properly constrained so that the system has the correct degrees of freedom and then using the results to analyze the motion of the system.</p>
         
 
-        <h2><strong>Constraints:</strong></h2>
-        <p>A key part of this project was assigning the proper constraints to each joint so that the Grubler count reults in the correct degrees of freedom for the system. This process invloves making sure that you have neough constraints to achieve the desired motion but that you also have no redundant constraints.</p>
-        <img src="images/Screenshot 2025-03-10 171547.png" width="600" height="350">
+        <h2>Constraints</h2>
+        <p>A key part of this project was assigning the proper constraints to each joint so that the Grübler count results in the correct degrees of freedom for the system. This process involves making sure that you have enough constraints to achieve the desired motion but that you also have no redundant constraints.</p>
+        <img src="images/Screenshot 2025-03-10 171547.png" alt="Constraint configuration">
 
-        <h2><strong>Motion Analysis:</strong></h2>
-        <p>Using Solidwork's motion analysis I was able to analyze the system with several different kinds of motion and trace the paths of different points in the system.</p>
-        <img src="images/Screenshot 2025-03-10 172014.png" width="600" height="400">
+        <h2>Motion Analysis</h2>
+        <p>Using SolidWorks' motion analysis I was able to analyze the system with several different kinds of motion and trace the paths of different points in the system.</p>
+        <img src="images/Screenshot 2025-03-10 172014.png" alt="Motion analysis visualization">
 
-        <h2><strong>Assginment Reults:</strong></h2>
-        <p>For this assignement I was asked to plot the following:</p>
+        <h2>Assignment Results</h2>
+        <p>For this assignment I was asked to plot the following:</p>
         <ol>
-            <li>The traces of the x and y direction of the midpoint of the Extension and to save them to a csv.<br>
-            <a href="Linear Velocity3.csv" download>Download X Direction Trace</a>
-                <br>
-            <a href="Linear Velocity4.csv" download>Download Y Direction Trace</a></li>
-            <img src="images/Screenshot 2025-03-10 172230.png" width="600" height="400">
-            <li>The torque of the motor.</li>
-            <img src="images/Screenshot 2025-03-10 173022.png" width="600" height="300">
+            <li>
+                The traces of the x and y direction of the midpoint of the Extension and to save them to a CSV.<br>
+                <a href="Linear Velocity3.csv" download class="download-link">Download X Direction Trace</a>
+                <a href="Linear Velocity4.csv" download class="download-link">Download Y Direction Trace</a>
+                <img src="images/Screenshot 2025-03-10 172230.png" alt="Velocity traces">
+            </li>
+            <li>
+                The torque of the motor.
+                <img src="images/Screenshot 2025-03-10 173022.png" alt="Motor torque plot">
+            </li>
         </ol>
-        <h2><strong>Results Analysis:</strong></h2>
-        <p>The final part of this project was to use the motion analysis tool to determine the following reults:</p>
+
+        <h2>Results Analysis</h2>
+        <p>The final part of this project was to use the motion analysis tool to determine the following results:</p>
         <ol>
-            <li>The maximum value of the motor torque: Looking at the chart above we can see that the maximum value of the torque is approximately 6 pound force per inch.</li>
-            <li>The angle of the crank for which the motor torque is maximum in each cycle: Ploting the torque and the angle of displacement at the same time we can see that the greatest torque occurs when the crank is 180 degrees from its starting position.</li>
-            <img src="images/Screenshot 2025-03-10 173724.png" width="600" height="400">
-            <li>The maximum vertical force exerted on Bearing and New Bearing: As we can see from the charts below the maximum vertical force exerted on the Bearing is around 0.07 pounds and 0.05 on the New bearing.</li>
-            <img src="images/Screenshot 2025-03-11 100121.png" width="600" height="400">
-            <li>The minimum motor torque required to move the Crank at a constant angular speed of 600rpm: as we can see from the plot below is around 537 Watts.</li>
-            <img src="images/Screenshot 2025-03-10 174051.png" height="300" width="600">
-            <li>Explain the meaning of the negative torque values and how they are related to the motion of the mechanism: The motor is attempting to move the crank at a constant angular velocity but at certain points gravity is attempting to accelerate the crank which means that in order to maintain the contstant speed the motor must work against the crank.</li>
+            <li>
+                <strong>The maximum value of the motor torque:</strong> Looking at the chart above we can see that the maximum value of the torque is approximately 6 pound force per inch.
+            </li>
+            <li>
+                <strong>The angle of the crank for which the motor torque is maximum in each cycle:</strong> Plotting the torque and the angle of displacement at the same time we can see that the greatest torque occurs when the crank is 180 degrees from its starting position.
+                <img src="images/Screenshot 2025-03-10 173724.png" alt="Torque vs angle plot">
+            </li>
+            <li>
+                <strong>The maximum vertical force exerted on Bearing and New Bearing:</strong> As we can see from the charts below the maximum vertical force exerted on the Bearing is around 0.07 pounds and 0.05 on the New bearing.
+                <img src="images/Screenshot 2025-03-11 100121.png" alt="Bearing forces">
+            </li>
+            <li>
+                <strong>The minimum motor torque required to move the Crank at a constant angular speed of 600rpm:</strong> As we can see from the plot below is around 537 Watts.
+                <img src="images/Screenshot 2025-03-10 174051.png" alt="Power requirements">
+            </li>
+            <li>
+                <strong>Explain the meaning of the negative torque values and how they are related to the motion of the mechanism:</strong> The motor is attempting to move the crank at a constant angular velocity but at certain points gravity is attempting to accelerate the crank which means that in order to maintain the constant speed the motor must work against the crank.
+            </li>
         </ol>
      
     </section>
@@ -60,7 +275,7 @@
         <h2>Contact Me</h2>
         <p>Email: <a href="mailto:letteney@bu.edu">letteney@bu.edu</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a></p>
-        <p>Phone: (805) 914-8391</p>
+        <p>Phone: <a href="tel:+18059148391">(805) 914-8391</a></p>
     </section>
 
     <footer>
