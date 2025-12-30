@@ -1,55 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bagatelle</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagatelle Arcade Game - Joseph Letteney</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            font-size: 1.05rem;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1e3c72;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        ul li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li:before {
+            content: "▹ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-left: -1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .image-gallery img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        #contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        #contact h2 {
+            color: white;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+            margin-bottom: 2rem;
+        }
+
+        #contact p {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        #contact a {
+            color: white;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            text-decoration: none;
+        }
+
+        #contact a:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section id="project-details">
-    <h1><strong>Bagatelle</strong></h1>
-    <h2>Goal:</h2>
-    <p>The Goal of this project was to design and manufacture a small pinball machine using a variety of machining techniques as part of a week long hackathon style project.</p>
-  </section>
-  <section id="project-details">
-    <h2><strong>Design</strong></h2>
-    <p>The first step in this project was to model the whole pinball machine in Onshape.</p>
-    <br>
-    <img src="images/Screenshot 2025-01-20 141244.png" heigth="400" width="400">
-  </section>
-  <section id="project-details">
-    <h2><strong>Manufacturing</strong></h2>
-    <p>When I had fully modeled the bagatelle I began manufacturing the individual parts. This involved using a variety of manufacturing techniques including:</p>
-    <ul>
-      <li>Water jetter and sheet metal bending for the stand.</li>
-      <li>Laser cutter for the front and back plate.</li>
-      <li>Manual mill for the holes.</li>
-      <li>Cnc mill for the spineret.</li>
-      <li>Manual mill for the knob.</li>
-      <li>3D printing for the gears.</li>
-      <li>Aluminum casting for the name plate.</li>
-    </ul>
-    <img src="images/DSCF7392.JPG" height="400" width="400">
-    <img src="images/DSCF7924.JPG" height="400" width="400">
-    <img src="images/DSCF7985.JPG" height="400" width="500">
-    <img src="images/IMG_7256.jpg" height="400" width="400">
-    <img src="images/IMG_7294.jpg" height="400" width="300">
-  </section>
+    <div class="hero">
+        <h1>Bagatelle Arcade Game</h1>
+        <p class="subtitle">Mechanical Design • Fabrication • Game Design</p>
+    </div>
 
-  <footer>
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
-  </footer>
+    <section id="project-details">
+        <h2>Goal</h2>
+        <p>The goal of this project was to design and manufacture a small pinball machine using a variety of machining techniques as part of a week long hackathon style project.</p>
+    </section>
 
-  <script src="scripts.js"></script>
+    <section id="design">
+        <h2>Design</h2>
+        <p>The first step in this project was to model the whole pinball machine in OnShape.</p>
+        <img src="images/Screenshot 2025-01-20 141244.png" alt="Bagatelle CAD design">
+    </section>
+
+    <section id="manufacturing">
+        <h2>Manufacturing</h2>
+        <p>When I had fully modeled the bagatelle I began manufacturing the individual parts. This involved using a variety of manufacturing techniques including:</p>
+        <ul>
+            <li>Water jetter and sheet metal bending for the stand</li>
+            <li>Laser cutter for the front and back plate</li>
+            <li>Manual mill for the holes</li>
+            <li>CNC mill for the spineret</li>
+            <li>Manual mill for the knob</li>
+            <li>3D printing for the gears</li>
+            <li>Aluminum casting for the name plate</li>
+        </ul>
+        
+        <div class="image-gallery">
+            <img src="images/DSCF7392.JPG" alt="Manufacturing process 1">
+            <img src="images/DSCF7924.JPG" alt="Manufacturing process 2">
+            <img src="images/DSCF7985.JPG" alt="Manufacturing process 3">
+            <img src="images/IMG_7256.jpg" alt="Manufacturing process 4">
+            <img src="images/IMG_7294.jpg" alt="Manufacturing process 5">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:letteney@bu.edu">letteney@bu.edu</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Joseph Letteney. All rights reserved.</p>
+    </footer>
 </body>
 </html>
