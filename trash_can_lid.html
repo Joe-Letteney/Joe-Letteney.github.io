@@ -3,78 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trash Can Lid Project</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Automated Trash Can Lid Mechanism - Joseph Letteney</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
             color: #333;
         }
+
         header {
-            background: #333;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 15px 0;
-            text-align: center;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         nav ul {
             list-style: none;
-            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
         }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
+
+        nav a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            font-size: 1.05rem;
         }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
         section {
-            padding: 30px;
-            margin: 20px auto;
-            width: 80%;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
-        .images {
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1e3c72;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .video-container {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
         }
-        .images img {
+
+        video {
             max-width: 100%;
             height: auto;
-            border: 2px solid #ddd;
             border-radius: 8px;
-            padding: 5px;
-            background: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #333;
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .image-gallery img,
+        .image-gallery video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .image-gallery img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+
+        #contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            margin-top: 20px;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        #contact h2 {
+            color: white;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+            margin-bottom: 2rem;
+        }
+
+        #contact p {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        #contact a {
+            color: white;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            text-decoration: none;
+        }
+
+        #contact a:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
         }
     </style>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const videos = document.querySelectorAll("video");
-        videos.forEach(video => {
-            video.play().catch(error => console.log("Autoplay blocked:", error));
+        document.addEventListener("DOMContentLoaded", function () {
+            const videos = document.querySelectorAll("video");
+            videos.forEach(video => {
+                video.play().catch(error => console.log("Autoplay blocked:", error));
+            });
         });
-    });
-</script>
+    </script>
 </head>
 <body>
     <header>
@@ -87,43 +221,51 @@
             </ul>
         </nav>
     </header>
+
+    <div class="hero">
+        <h1>Automated Trash Can Lid Mechanism</h1>
+        <p class="subtitle">Mechanism Design • CAD Modeling • Functional Prototyping</p>
+    </div>
  
     <section id="description">
-        <h1>Trash Can Lid - Four Bar Linkage Design</h1>
-        <h2><strong>Goal:</strong></h2>
-        <p>This project focused on designing and simulating a four-bar linkage mechanism for a trash can lid.
-           The goal was to create a smooth, efficient, and ergonomic opening and closing motion that allowed the user to throw away their trash without having to look inside the trash can.</p>
+        <h2>Goal</h2>
+        <p>This project focused on designing and simulating a four-bar linkage mechanism for a trash can lid. The goal was to create a smooth, efficient, and ergonomic opening and closing motion that allowed the user to throw away their trash without having to look inside the trash can. The design optimized link lengths and pivot positions to achieve the desired lid trajectory while minimizing actuation force requirements.</p>
     </section>
     
     <section id="video">
-        <h2><strong>Motion Simulation</strong></h2>
-        <p>This simulation demonstrates the four-bar linkage mechanism in action.</p>
-        <video width="600" controls autoplay loop muted>
-            <source src="Screen Recording 2025-02-04 125152.mp4" type="video/mp4" >
-            Your browser does not support the video tag.
-        </video>
+        <h2>Motion Simulation</h2>
+        <p>This simulation demonstrates the four-bar linkage mechanism in action, showing the smooth motion profile and mechanical advantage throughout the complete cycle.</p>
+        <div class="video-container">
+            <video width="600" controls autoplay loop muted>
+                <source src="Screen Recording 2025-02-04 125152.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </section>
     
     <section id="design">
-        <h2><strong>Design Details</strong></h2>
-        <p>To develop this lid mechanism, I began by using Math Illustrations to determine the optimal geometric layout for the lid’s motion. Next, I modeled the design in SolidWorks, ensuring functionality and feasibility. Finally, I utilized SolidWorks Motion Analysis to simulate and refine the movement, optimizing the design for smooth and reliable operation.</p>
+        <h2>Design Details</h2>
+        <p>To develop this lid mechanism, I began by using Math Illustrations to determine the optimal geometric layout for the lid's motion. Next, I modeled the design in SolidWorks, ensuring functionality and feasibility. Finally, I utilized SolidWorks Motion Analysis to simulate and refine the movement, optimizing the design for smooth and reliable operation.</p>
+        
+        <div class="image-gallery">
+            <img src="math_works.png" alt="Math Illustrations Design">
+            <img src="four_bar_tutorial.png" alt="Trash Can Lid Design">
+            <img src="isometric_view_trashcan.png" alt="Isometric View of Trash Can">
+            <video controls autoplay loop muted>
+                <source src="images/Screen Recording 2025-03-10 112701.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:letteney@bu.edu">letteney@bu.edu</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a></p>
     </section>
     
-    <div class="images">
-        
-        <img src="math_works.png" alt="Math Illustrations Design">
-        <img src="four_bar_tutorial.png" alt="Trash Can Lid Design">
-        <img src="isometric_view_trashcan.png" alt="Isometric View of Trash Can">
-    
-        <video width="600" controls autoplay loop muted>
-            <source src="images/Screen Recording 2025-03-10 112701.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
-    </div>
-    
     <footer>
-        <p><a href="index.html" style="color: white; text-decoration: none;">Back to Portfolio</a></p>
+        <p><a href="index.html">Back to Portfolio</a></p>
         <p>&copy; 2025 Joseph Letteney. All rights reserved.</p>
     </footer>
 </body>
