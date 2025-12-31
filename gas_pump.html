@@ -257,74 +257,40 @@
 
         <div class="overview">
             <h2>Project Overview</h2>
-            <p>The goal of this project was to build on our experience of manufacturing a rotary vane pump to design a pump for a specific appliaction that overcame many of the manufacturing challenges that we ran into with the original one. Our team was tasked with designing a gasoline fuel pump for application in a large truck. Our main focus was on designing a pump that met our given specifications that was both cheap and easy to produce and assemble. For this porject we produced a full drawing stack of drawings for our pump including GD&T specifications forn each of our machined parts as well as asemnly instructions.</p>
+            <p>The goal of this project was to build on our experience of manufacturing a rotary vane pump to design a pump for a specific appliaction that overcame many of the manufacturing challenges that we ran into with the original one. Our team was tasked with designing a gasoline fuel pump for application in a large truck. Our main focus was on designing a pump that met our given specifications that was both cheap and easy to produce and assemble. For this porject we produced a full drawing stack of drawings for our pump including GD&T specifications forn each of our machined parts as well as assembly instructions.</p>
         </div>
 
         <div class="project-section">
-            <h2>Step 1: Single Linear Stage</h2>
-            <p>The first step involved creating a linear stage capable of moving a small cart in one dimension. We constructed the frame from foam board and integrated a stepper motor with a lead screw to achieve precise linear motion. This prototype served as the foundation for understanding motion control and mechanical constraints.</p>
-            <img src="images/IMG_7397.jpg" alt="Prototype of single linear stage">
+            <h2>Step 1: Material Selection</h2>
+            <p>The first step in this project was choosing the materials for our pump. Given Our constraints of high pressure and high yearly production amounts we focused on finding materials that were compatible with gasoline while having high tensile strength and low cost. Using Granta Edupack we ran a number of searches to find suitable materials settling on cast iron gray for the main housing and alloy steel AISI 3031 for the rotor and shaft due to their relatively low coeficient of thermal expansion.</p>
+            <img src="images/Screenshot 2025-12-30 145849.png" alt="Granta Edupack Chart">
+            <img src="images/Screenshot 2025-12-30 145836.png" alt="Granta Edupack Chart">
         </div>
 
         <div class="project-section">
-            <h2>Step 2: Three-Axis Motion System</h2>
-            <p>The next phase required integrating three linear stages to achieve full three-dimensional movement. We collaborated with two other teams to stack one linear stage on top of two others, adding a third stepper motor to control vertical movement. To validate the system, we programmed it to draw shapes on paper using G-code commands. This exercise provided crucial experience with multi-axis coordination and motion control.</p>
-            <div class="video-section">
-                <video width="600" controls autoplay loop muted>
-                    <source src="images/IMG_1978.MOV" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-
-        <div class="project-section">
-            <h2>Step 3: Mechanical Design</h2>
-            <p>With a solid understanding of stepper motors and G-code from the drawing device, we began designing the automatic pipetter system. While my teammate focused on optimizing the linear stages, I took the lead on designing the pipette mounting mechanism. We selected a Femto Scientific P10 pipette for this application.</p>
-            <p>I designed a custom mounting plate that securely holds the pipette while allowing controlled vertical movement. The design incorporates a rack and pinion mechanism at the top to actuate the pipette button with precision. An additional rack mounted to the back of the plate interfaces with another stepper motor to control the vertical axis. Below are the SolidWorks assembly views showing the complete mechanism.</p>
-            <img src="images/Screenshot 2025-05-01 190053.png" alt="SolidWorks design - isometric view">
-            <img src="images/Screenshot 2025-05-01 190118.png" alt="SolidWorks design - detailed view">
-        </div>
-
-        <div class="project-section">
-            <h2>Step 4: Automation Software</h2>
-            <p>Automating the pipetting process required generating precise G-code commands for each well in the 96-well plate. Since each pipetting operation requires 13 unique motor commands, manually writing code for all wells would be impractical and error-prone. To solve this, I developed a Python script that automatically generates all necessary commands and exports them to a G-code file.</p>
-            <p>We used Repetier-Host, a 3D printer control software, to execute the G-code and operate the device. The Python script proved invaluable as it allowed us to quickly iterate on motion parameters and optimize the thousands of commands required for complete plate coverage.</p>
+            <h2>Step 2: Calculations</h2>
+            <p>The next step in the process was to do the necessary calculations so that our pump would be able to operate under the given constraints. This included caclualting the PV value of the tip so that we could choose an appropriate material for the vane, FEA analysis on the hosuing to make sure that it can withstand the pressure, calculating the wear rate so that our pump could last for the required lifespan, and clamping force required from our bolts. These calculations informed many of the design choices we made going forward and set the foundation for our pump. To see our full calculation documengt please see the link below.</p>
             <a href="copy_of_me_360_pipette_script.py" download="copy_of_me_360_pipette_script.py" class="download-button">
-                Download Python Script
+                Download Calculations Documentation
             </a>
+            <>
         </div>
 
         <div class="project-section">
-            <h2>Step 5: Testing and Optimization</h2>
-            <p>During initial testing, we discovered that the original stepper motors lacked sufficient torque to move the pipette vertically as designed. We first attempted to resolve this by adjusting gear ratios to maximize available torque. However, geometric constraints in the system limited the effectiveness of this approach.</p>
-            <p>Our solution was to replace the large stepper motor with a smaller toy motor and reduce the vertical movement speed, increasing contact time and effective torque. These modifications successfully achieved the required motion. We then fine-tuned the system by precisely locating each well position and optimizing step sizes for accurate pipetting across the entire plate.</p>
-            <div class="video-section">
-                <iframe 
-                    src="https://drive.google.com/file/d/16KBDkKgNuotGOrFB2QD-pgC3LCoFygSE/preview" 
-                    width="640" 
-                    height="480" 
-                    allow="autoplay">
-                </iframe>
-            </div>
-            <div class="video-section">
-                <video width="600" controls autoplay loop muted>
-                    <source src="images/IMG_2031.MOV" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+            <h2>Step 3: Challenges Overcome</h2>
+            <p>One of the major constraints that we discovered during our calculation phase was the extremely high PV value that the tip of the vane would experience. Because of this high value we had to eliminate all plastics as possible vane materials and instead go for a hardened tool steel as our vane material. In order to minimize the outward force on the vane we came up with a unique vane design that allows fluid to flow around the vane while still keeping a sealed surface. This almost entriley balnaces the vanes with respect to the pressure from the fluid and results in the mojority of the force outward being due to centripital force. However, because our vanes were made of steel the wear rate between them and the housing would have been very high so to solve this we designed an insert made of PEEK that would significanlty reduce the wear rate on the vanes and allow the pump to operate for its whole lifetime.</p>
+            <img src="images/vane.png" alt="Vane Design">
+            <img src="images/Screenshot 2025-12-30 145807.png" alt="Peek Insert">
         </div>
 
         <div class="project-section">
-            <h2>Step 6: Final Presentation</h2>
-            <p>After completing testing and optimization, we presented our automated pipetting system to our professor and fellow students, demonstrating the complete functionality and discussing the engineering challenges we overcame during development.</p>
-            <div class="video-section">
-                <iframe 
-                    src="https://drive.google.com/file/d/1APYfEkShg_0rNnfIM7XqfL8DsNa6fWK3/preview" 
-                    width="640" 
-                    height="480" 
-                    allow="autoplay">
-                </iframe>
-            </div>
+            <h2>Step 4: Desing For Manufacturing</h2>
+            <p>In order to keep our costs low due to our high yearly production quantity we decided to sand cast the main housing. In order to do this we had to make sure that our desin was castable with only one core. We also had to optimize our PEEK insert so that it was possible to injection mold.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Step 5: Technical Drawings</h2>
+            <p>The final stage of this project was to produce a full stack of technical drawings for our pump including GD&T, full casting drawings for all cast parts, and injection molding drawings for our inserts.</p>
         </div>
 
         <div class="contact-section">
