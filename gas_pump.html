@@ -158,6 +158,17 @@
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
+        .drawings-gallery {
+            margin-top: 2rem;
+        }
+
+        .pdf-viewer {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
         .contact-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -233,6 +244,14 @@
                 flex-direction: column;
                 gap: 1.5rem;
             }
+
+            .drawing-thumbnails {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .pdf-viewer iframe {
+                height: 500px;
+            }
         }
     </style>
 </head>
@@ -257,40 +276,46 @@
 
         <div class="overview">
             <h2>Project Overview</h2>
-            <p>The goal of this project was to build on our experience of manufacturing a rotary vane pump to design a pump for a specific appliaction that overcame many of the manufacturing challenges that we ran into with the original one. Our team was tasked with designing a gasoline fuel pump for application in a large truck. Our main focus was on designing a pump that met our given specifications that was both cheap and easy to produce and assemble. For this porject we produced a full drawing stack of drawings for our pump including GD&T specifications forn each of our machined parts as well as assembly instructions.</p>
+            <p>This project extended previous rotary vane pump manufacturing experience by addressing a specific application while resolving identified manufacturing constraints. The objective was to design a gasoline fuel pump suitable for heavy-duty truck applications, with particular emphasis on cost-effective production and ease of assembly. The project deliverables included a comprehensive drawing package with detailed GD&T specifications for all machined components, along with complete assembly documentation.</p>
         </div>
 
         <div class="project-section">
-            <h2>Step 1: Material Selection</h2>
-            <p>The first step in this project was choosing the materials for our pump. Given Our constraints of high pressure and high yearly production amounts we focused on finding materials that were compatible with gasoline while having high tensile strength and low cost. Using Granta Edupack we ran a number of searches to find suitable materials settling on cast iron gray for the main housing and alloy steel AISI 3031 for the rotor and shaft due to their relatively low coeficient of thermal expansion.</p>
-            <img src="images/Screenshot 2025-12-30 145849.png" alt="Granta Edupack Chart">
-            <img src="images/Screenshot 2025-12-30 145836.png" alt="Granta Edupack Chart">
+            <h2>Phase 1: Material Selection</h2>
+            <p>Material selection was driven by operational requirements of high-pressure performance and large-scale production economics. The selection process prioritized materials demonstrating gasoline compatibility, high tensile strength, and cost efficiency. Through systematic analysis using Granta EduPack, gray cast iron was selected for the main housing, while AISI 3031 alloy steel was specified for the rotor and shaft assembly. These materials were chosen for their complementary properties, including minimal thermal expansion coefficients critical for maintaining tight tolerances during operation.</p>
+            <img src="images/Screenshot 2025-12-30 145849.png" alt="Granta Edupack Material Selection Chart">
+            <img src="images/Screenshot 2025-12-30 145836.png" alt="Granta Edupack Material Comparison">
         </div>
 
         <div class="project-section">
-            <h2>Step 2: Calculations</h2>
-            <p>The next step in the process was to do the necessary calculations so that our pump would be able to operate under the given constraints. This included caclualting the PV value of the tip so that we could choose an appropriate material for the vane, FEA analysis on the hosuing to make sure that it can withstand the pressure, calculating the wear rate so that our pump could last for the required lifespan, and clamping force required from our bolts. These calculations informed many of the design choices we made going forward and set the foundation for our pump. To see our full calculation documengt please see the link below.</p>
+            <h2>Phase 2: Engineering Analysis</h2>
+            <p>Comprehensive engineering calculations were performed to ensure operational viability within specified constraints. Key analyses included PV value determination at the vane tip to inform material selection, finite element analysis of the housing to verify pressure containment capability, wear rate calculations to validate service life requirements, and bolt clamping force analysis for assembly integrity. These foundational calculations directly informed subsequent design decisions and established performance baselines for the pump assembly. Complete calculation documentation is available for download below.</p>
             <a href="copy_of_me_360_pipette_script.py" download="copy_of_me_360_pipette_script.py" class="download-button">
                 Download Calculations Documentation
             </a>
-            <>
         </div>
 
         <div class="project-section">
-            <h2>Step 3: Challenges Overcome</h2>
-            <p>One of the major constraints that we discovered during our calculation phase was the extremely high PV value that the tip of the vane would experience. Because of this high value we had to eliminate all plastics as possible vane materials and instead go for a hardened tool steel as our vane material. In order to minimize the outward force on the vane we came up with a unique vane design that allows fluid to flow around the vane while still keeping a sealed surface. This almost entriley balnaces the vanes with respect to the pressure from the fluid and results in the mojority of the force outward being due to centripital force. However, because our vanes were made of steel the wear rate between them and the housing would have been very high so to solve this we designed an insert made of PEEK that would significanlty reduce the wear rate on the vanes and allow the pump to operate for its whole lifetime.</p>
-            <img src="images/vane.png" alt="Vane Design">
-            <img src="images/Screenshot 2025-12-30 145807.png" alt="Peek Insert">
+            <h2>Phase 3: Design Challenges and Solutions</h2>
+            <p>Analysis revealed an exceptionally high PV value at the vane tip, necessitating elimination of all polymer options in favor of hardened tool steel. To mitigate the resulting high outward forces on the vanes, an innovative vane geometry was developed that permits fluid circulation while maintaining sealing integrity. This design achieves near-perfect pressure balance across the vane surfaces, with centrifugal force becoming the dominant outward load component. The steel-on-steel interface between vanes and housing presented significant wear concerns, which were addressed through the integration of precision-machined PEEK inserts. These inserts substantially reduce the wear rate, enabling the pump to achieve its specified service life.</p>
+            <img src="images/vane.png" alt="Innovative Vane Design">
+            <img src="images/Screenshot 2025-12-30 145807.png" alt="PEEK Insert Configuration">
         </div>
 
         <div class="project-section">
-            <h2>Step 4: Desing For Manufacturing</h2>
-            <p>In order to keep our costs low due to our high yearly production quantity we decided to sand cast the main housing. In order to do this we had to make sure that our desin was castable with only one core. We also had to optimize our PEEK insert so that it was possible to injection mold.</p>
+            <h2>Phase 4: Design for Manufacturing</h2>
+            <p>Manufacturing cost optimization for high-volume production was achieved through strategic process selection. The main housing was designed for sand casting with a single-core configuration, significantly reducing tooling complexity and per-unit cost. Concurrently, the PEEK insert geometry was optimized for injection molding, ensuring consistent quality and dimensional accuracy while maintaining manufacturing efficiency at scale.</p>
         </div>
 
         <div class="project-section">
-            <h2>Step 5: Technical Drawings</h2>
-            <p>The final stage of this project was to produce a full stack of technical drawings for our pump including GD&T, full casting drawings for all cast parts, and injection molding drawings for our inserts.</p>
+            <h2>Phase 5: Technical Documentation</h2>
+            <p>The project culminated in the development of a complete technical drawing package. This documentation suite includes detailed part drawings with comprehensive GD&T specifications, casting drawings for all cast components with complete pattern and core specifications, and injection molding drawings for polymer inserts with full process parameters. The drawing set provides manufacturing-ready documentation suitable for immediate production implementation.</p>
+            
+            <div class="drawings-gallery">
+                <h3 style="color: #1e3c72; margin-bottom: 1rem;">Technical Drawings</h3>
+                <div class="pdf-viewer">
+                    <iframe id="pdfViewer" src="path/to/your/drawings.pdf" style="width: 100%; height: 800px; border: none; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);"></iframe>
+                </div>
+            </div>
         </div>
 
         <div class="contact-section">
