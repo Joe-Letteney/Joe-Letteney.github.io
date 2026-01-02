@@ -109,6 +109,19 @@
             color: #555;
         }
 
+        /* FIXED LIST ALIGNMENT */
+        .overview ul {
+            margin: 1.5rem 0;
+            padding-left: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .overview li {
+            margin-bottom: 0.4rem;
+        }
+
         .project-section {
             background: white;
             padding: 2.5rem;
@@ -221,139 +234,142 @@
             padding: 2rem;
             margin-top: 4rem;
         }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 2rem 1rem;
-            }
-
-            .project-section,
-            .overview {
-                padding: 1.5rem;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .drawing-thumbnails {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-
-            .pdf-viewer iframe {
-                height: 500px;
-            }
-        }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">← Back to Portfolio</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">← Back to Portfolio</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <div class="hero">
-        <h1>Gasoline Fuel Pump</h1>
-        <p class="subtitle">Mechanical Design • Design For Manufacturing • GD&T • Project Documentation</p>
+<div class="hero">
+    <h1>Gasoline Fuel Pump</h1>
+    <p class="subtitle">Mechanical Design • Design for Manufacturing • GD&T • Project Documentation</p>
+</div>
+
+<div class="container">
+    <img src="images/Screenshot 2025-12-30 150023.png" alt="Exploded view of the pump">
+
+    <div class="overview">
+        <h2>Project Overview</h2>
+        <p>
+            This project built on prior experience manufacturing a rotary vane pump and focused on designing a new pump for a specific real-world
+            application. The goal was to address known design shortcomings while meeting strict performance, reliability, and manufacturing
+            requirements.
+        </p>
+
+        <p>
+            The design was developed to meet the following specifications:
+        </p>
+
+        <ul>
+            <li>Working fluid: Gasoline for a fuel injection system</li>
+            <li>Operating temperature: −40°F to 140°F</li>
+            <li>Inlet pressure: 4 bar</li>
+            <li>Outlet pressure: 300 bar (4351 psi)</li>
+            <li>Operating speed: 2000 rpm</li>
+            <li>Service life: 200,000 miles (MTBF)</li>
+            <li>Application: Full-size pickup truck</li>
+            <li>Annual production volume: 2,000,000 units</li>
+        </ul>
     </div>
 
-    <div class="container">
-        <img src="images/Screenshot 2025-12-30 150023.png" alt="Exploded view of the pump">
-    
+    <div class="project-section">
+        <h2>Phase 1: Engineering Analysis</h2>
+        <p>
+            The first phase of the project involved performing detailed engineering calculations to understand the forces and operating conditions
+            each component would experience. This included evaluating PV values at the vane tips, estimating wear rates for both the vanes and
+            housing, analyzing internal pressure loads on the housing and front plate, determining required bolt clamping forces, assessing
+            tolerance stack-ups, and accounting for thermal expansion effects. These analyses established a clear set of performance and durability
+            requirements that guided the final design. The complete calculation package is provided below.
+        </p>
 
-        <div class="overview">
-            <h2>Project Overview</h2>
-            <p>The goal of this project was to build on the experience manufacturing a rotary vane pump to design a pump for a specific application while fixing many of the flaws that we had discovered in the original design. Our teams specifications were as follows:</p>
-            <p>Substance: Gasoline for Fuel Injection System</p>
-            <ul>
-             <li>Temperature: -40F to 140F</li>
-            <li>Inlet Pressure: 4 bar</li>
-            <li>Outlet Pressure: 300 bar (4351psi)</li>
-            <li>Speed: 2000 rpm</li>
-            <li>MTBF: 200,000 miles of vehicle travel</li>
-            <li>Installation: Large pickup truck</li>
-            <li>Yearly: Qty 2,000,000 units per year</li>
-            </ul>
-
-
-        </div>
-
-        <div class="project-section">
-            <h2>Phase 1: Engineering Analysis</h2>
-            <p>The first phase of this project was to preform in depth calculations as to what forces and conditions our parts would have to be able to withstand based on our operating conditions. These calculate the PV value at the tip of the vanes, the wear rate on both the vanes and the hosuing, the pressure the hosuing and front plate would have to withsand, the clamping force and number of bolts required, tolerance stackup, and thermal expansion. These calculations gave us a foundation of requirements that our desing needed to meet. You can read our entire calculation document below.</p>
-             <div class="drawings-gallery">
-                <h3 style="color: #1e3c72; margin-bottom: 1rem;">Supporting Documentation</h3>
-                <div class="pdf-viewer">
-                    <iframe id="pdfViewer" src="Documents/Supporting Documents.pdf" style="width: 100%; height: 800px; border: none; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);"></iframe>
-                </div>
-            </div>
-
-
-        <div class="project-section">
-            <h2>Phase 2: Material Selection</h2>
-            <p>The next phase of this porject was to choose what materials to make the pump out of. Due to the high pressures and very high yearly production quantity we need a material with high tensile stength, low cost, and the ability to be sadn cast to further drive down manufacturing costs. Using Granta Edupack we set up several searchs based on these criteria everntually deciding  on cast iron gray for its blend of low cost and strength.</p>
-            <img src="images/Screenshot 2025-12-30 145849.png" alt="Granta Edupack Material Selection Chart">
-            <img src="images/Screenshot 2025-12-30 145836.png" alt="Granta Edupack Material Comparison">
-        </div>
-
-        
-        <div class="project-section">
-            <h2>Phase 3: Design Challenges and Solutions</h2>
-            <p>Analysis revealed an exceptionally high PV value at the vane tip, necessitating elimination of all polymer options in favor of hardened tool steel. To mitigate the resulting high outward forces on the vanes, an innovative vane geometry was developed that permits fluid circulation while maintaining sealing integrity. This design achieves near-perfect pressure balance across the vane surfaces, with centrifugal force becoming the dominant outward load component. The steel-on-steel interface between vanes and housing presented significant wear concerns, which were addressed through the integration of precision-machined PEEK inserts. These inserts substantially reduce the wear rate, enabling the pump to achieve its specified service life. Also to aviod cavitation, the inlet and outlet ports were designed so that volume of the fluid contained betweeen tow sets of vanes never changes.</p>
-            <img src="images/vane.png" alt="Innovative Vane Design">
-            <img src="images/Screenshot 2025-12-30 145807.png" alt="PEEK Insert Configuration">
-            <img src="images/Screenshot 2026-01-02 111612.png"> 
-        </div>
-
-        <div class="project-section">
-            <h2>Phase 4: Design for Manufacturing</h2>
-            <p>Manufacturing cost optimization for high-volume production was achieved through strategic process selection. The main housing was designed for sand casting with a single-core configuration, significantly reducing tooling complexity and per-unit cost. Concurrently, the PEEK insert geometry was optimized for injection molding, ensuring consistent quality and dimensional accuracy while maintaining manufacturing efficiency at scale. Finally the vanes are manufactured using powdered metal sinitering due to its high dimensional accuracy and compatibility with tool steel.</p>
-            
-        </div>
-
-        <div class="project-section">
-            <h2>Phase 5: Technical Documentation</h2>
-            <p>The project culminated in the development of a complete technical drawing package. This documentation suite includes detailed part drawings with comprehensive GD&T specifications, casting drawings for all cast components with complete pattern and core specifications, and injection molding drawings for polymer inserts with full process parameters. The drawing set provides manufacturing-ready documentation suitable for immediate production implementation.</p>
-            
-            <div class="drawings-gallery">
-                <h3 style="color: #1e3c72; margin-bottom: 1rem;">Technical Drawings</h3>
-                <div class="pdf-viewer">
-                    <iframe id="pdfViewer" src="Documents/Bill of materials Assembly-combined.pdf" style="width: 100%; height: 800px; border: none; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);"></iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="contact-section">
-            <h2>Get In Touch</h2>
-            <div class="contact-links">
-                <div class="contact-item">
-                    <strong>Email</strong>
-                    <a href="mailto:letteney@bu.edu">letteney@bu.edu</a>
-                </div>
-                <div class="contact-item">
-                    <strong>LinkedIn</strong>
-                    <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a>
-                </div>
+        <div class="drawings-gallery">
+            <h3 style="color: #1e3c72; margin-bottom: 1rem;">Supporting Documentation</h3>
+            <div class="pdf-viewer">
+                <iframe src="Documents/Supporting Documents.pdf" style="width: 100%; height: 800px; border: none; border-radius: 8px;"></iframe>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Joseph Letteney. All rights reserved.</p>
-    </footer>
+    <div class="project-section">
+        <h2>Phase 2: Material Selection</h2>
+        <p>
+            Material selection focused on balancing strength, cost, and manufacturability for high-pressure, high-volume production.
+            Given the operating pressures and annual production volume, the selected material needed to offer high tensile strength at a low
+            cost and be compatible with sand casting to reduce manufacturing expense. Using Granta EduPack, multiple candidate materials were
+            evaluated against these criteria, leading to the selection of gray cast iron for its favorable combination of strength, cost, and
+            castability.
+        </p>
+        <img src="images/Screenshot 2025-12-30 145849.png" alt="Granta EduPack material selection chart">
+        <img src="images/Screenshot 2025-12-30 145836.png" alt="Granta EduPack material comparison">
+    </div>
+
+    <div class="project-section">
+        <h2>Phase 3: Design Challenges and Solutions</h2>
+        <p>
+            Engineering analysis revealed extremely high PV values at the vane tips, eliminating polymer materials and necessitating the use of
+            hardened tool steel. To reduce the resulting outward forces on the vanes, a revised vane geometry was developed that allows controlled
+            fluid circulation while maintaining an effective seal. This approach significantly balanced pressure across the vane surfaces, leaving
+            centrifugal force as the primary outward load. To address wear concerns from steel-on-steel contact, precision-machined PEEK inserts
+            were added to the housing. These inserts greatly reduced wear rates and enabled the design to meet its required service life. In
+            addition, inlet and outlet port geometry was optimized to prevent volume changes between vane chambers, minimizing the risk of
+            cavitation.
+        </p>
+        <img src="images/vane.png" alt="Vane geometry design">
+        <img src="images/Screenshot 2025-12-30 145807.png" alt="PEEK insert configuration">
+        <img src="images/Screenshot 2026-01-02 111612.png" alt="Pump internal configuration">
+    </div>
+
+    <div class="project-section">
+        <h2>Phase 4: Design for Manufacturing</h2>
+        <p>
+            Manufacturing considerations were central to the design due to the high annual production volume. The main housing was designed for
+            sand casting using a single-core configuration to reduce tooling complexity and cost. The PEEK inserts were optimized for injection
+            molding to ensure consistent quality and dimensional control at scale. The vanes were designed for powder metal sintering, providing
+            excellent dimensional accuracy and compatibility with hardened tool steel materials.
+        </p>
+    </div>
+
+    <div class="project-section">
+        <h2>Phase 5: Technical Documentation</h2>
+        <p>
+            The project concluded with the creation of a complete, manufacturing-ready technical drawing package. This included detailed part
+            drawings with full GD&T, casting drawings with pattern and core specifications, and injection molding drawings for polymer inserts.
+            Together, these documents provide a comprehensive reference suitable for direct production implementation.
+        </p>
+
+        <div class="drawings-gallery">
+            <h3 style="color: #1e3c72; margin-bottom: 1rem;">Technical Drawings</h3>
+            <div class="pdf-viewer">
+                <iframe src="Documents/Bill of materials Assembly-combined.pdf" style="width: 100%; height: 800px; border: none; border-radius: 8px;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2>Get In Touch</h2>
+        <div class="contact-links">
+            <div class="contact-item">
+                <strong>Email</strong>
+                <a href="mailto:letteney@bu.edu">letteney@bu.edu</a>
+            </div>
+            <div class="contact-item">
+                <strong>LinkedIn</strong>
+                <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Joseph Letteney. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
+
