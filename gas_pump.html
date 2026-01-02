@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gasoline Fuel Pump - Joseph Letteney</title>
+
     <style>
         * {
             margin: 0;
@@ -16,19 +17,6 @@
             line-height: 1.6;
             color: #333;
         }
-        .design-images {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-}
-
-.design-images img {
-    width: 100%;
-    max-width: 32%;
-    height: auto;
-}
-
 
         header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
@@ -56,12 +44,7 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.3s;
             font-size: 1.05rem;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
         }
 
         .hero {
@@ -87,19 +70,8 @@
             padding: 3rem 2rem;
         }
 
-        .video-section {
-            text-align: center;
-            margin: 2rem 0 3rem 0;
-        }
-
-        .video-section video,
-        .video-section iframe {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-
-        .overview {
+        .overview,
+        .project-section {
             background: white;
             padding: 2.5rem;
             border-radius: 12px;
@@ -107,53 +79,29 @@
             margin-bottom: 3rem;
         }
 
-        .overview h2 {
+        .overview h2,
+        .project-section h2 {
             color: #1e3c72;
             font-size: 1.8rem;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 0.5rem;
-            display: inline-block;
+            margin-bottom: 1.2rem;
         }
 
-        .overview p {
+        .overview p,
+        .project-section p {
             font-size: 1.1rem;
             line-height: 1.8;
             color: #555;
+            margin-bottom: 1.5rem;
         }
 
-        /* FIXED LIST ALIGNMENT */
         .overview ul {
-            margin: 1.5rem 0;
             padding-left: 1.2rem;
             font-size: 1.1rem;
-            line-height: 1.8;
             color: #555;
         }
 
         .overview li {
             margin-bottom: 0.4rem;
-        }
-
-        .project-section {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            margin-bottom: 2.5rem;
-        }
-
-        .project-section h2 {
-            color: #1e3c72;
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-section p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1.5rem;
         }
 
         .project-section img {
@@ -164,24 +112,20 @@
             margin: 1.5rem 0;
         }
 
-        .download-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 1rem;
+        /* FIXED DESIGN IMAGES */
+        .design-images {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
         }
 
-        .download-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        .design-images img {
+            flex: 1;
+            max-width: 100%;
+            height: auto;
+            margin: 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .drawings-gallery {
@@ -192,7 +136,6 @@
             background: #f8f9fa;
             border-radius: 8px;
             padding: 1rem;
-            margin-bottom: 1rem;
         }
 
         .contact-section {
@@ -204,42 +147,6 @@
             margin-top: 4rem;
         }
 
-        .contact-section h2 {
-            color: white;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-item strong {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: opacity 0.3s;
-        }
-
-        .contact-item a:hover {
-            opacity: 0.8;
-        }
-
         footer {
             background: #1e3c72;
             color: white;
@@ -247,8 +154,15 @@
             padding: 2rem;
             margin-top: 4rem;
         }
+
+        @media (max-width: 900px) {
+            .design-images {
+                flex-wrap: wrap;
+            }
+        }
     </style>
 </head>
+
 <body>
 
 <header>
@@ -261,7 +175,7 @@
 
 <div class="hero">
     <h1>Gasoline Fuel Pump</h1>
-    <p class="subtitle">Mechanical Design • Design for Manufacturing • GD&T • Project Documentation</p>
+    <p class="subtitle">Mechanical Design • Design for Manufacturing • GD&amp;T • Project Documentation</p>
 </div>
 
 <div class="container">
@@ -270,15 +184,11 @@
     <div class="overview">
         <h2>Project Overview</h2>
         <p>
-            This project built on prior experience manufacturing a rotary vane pump and focused on designing a new pump for a specific real-world
-            application. The goal was to address known design shortcomings while meeting strict performance, reliability, and manufacturing
-            requirements.
+            This project builds on prior experience designing and manufacturing a rotary vane pump. The objective was to redesign the pump for a
+            specific automotive application while addressing performance, durability, and manufacturability limitations identified in earlier
+            designs.
         </p>
-
-        <p>
-            The design was developed to meet the following specifications:
-        </p>
-
+        <p>The system was developed to meet the following specifications:</p>
         <ul>
             <li>Working fluid: Gasoline for a fuel injection system</li>
             <li>Operating temperature: −40°F to 140°F</li>
@@ -294,17 +204,16 @@
     <div class="project-section">
         <h2>Phase 1: Engineering Analysis</h2>
         <p>
-            The first phase of the project involved performing detailed engineering calculations to understand the forces and operating conditions
-            each component would experience. This included evaluating PV values at the vane tips, estimating wear rates for both the vanes and
-            housing, analyzing internal pressure loads on the housing and front plate, determining required bolt clamping forces, assessing
-            tolerance stack-ups, and accounting for thermal expansion effects. These analyses established a clear set of performance and durability
-            requirements that guided the final design. The complete calculation package is provided below.
+            Detailed engineering analysis was performed to determine the forces, wear mechanisms, and operating limits of each component. This
+            included PV calculations at the vane tips, wear rate estimation, pressure loading on structural components, bolt clamping analysis,
+            tolerance stack-up evaluation, and thermal expansion effects. These analyses established the design requirements used throughout
+            development.
         </p>
 
         <div class="drawings-gallery">
-            <h3 style="color: #1e3c72; margin-bottom: 1rem;">Supporting Documentation</h3>
             <div class="pdf-viewer">
-                <iframe src="Documents/Supporting Documents.pdf" style="width: 100%; height: 800px; border: none; border-radius: 8px;"></iframe>
+                <iframe src="Documents/Supporting Documents.pdf"
+                        style="width:100%; height:800px; border:none; border-radius:8px;"></iframe>
             </div>
         </div>
     </div>
@@ -312,73 +221,56 @@
     <div class="project-section">
         <h2>Phase 2: Material Selection</h2>
         <p>
-            Material selection focused on balancing strength, cost, and manufacturability for high-pressure, high-volume production.
-            Given the operating pressures and annual production volume, the selected material needed to offer high tensile strength at a low
-            cost and be compatible with sand casting to reduce manufacturing expense. Using Granta EduPack, multiple candidate materials were
-            evaluated against these criteria, leading to the selection of gray cast iron for its favorable combination of strength, cost, and
-            castability.
+            Material selection prioritized strength, cost, and compatibility with high-volume manufacturing. Using Granta EduPack, several
+            candidate materials were evaluated, leading to the selection of gray cast iron for its balance of mechanical strength, low cost,
+            and excellent castability.
         </p>
-        <img src="images/Screenshot 2025-12-30 145849.png" alt="Granta EduPack material selection chart">
-        <img src="images/Screenshot 2025-12-30 145836.png" alt="Granta EduPack material comparison">
+        <img src="images/Screenshot 2025-12-30 145849.png" alt="Material selection chart">
+        <img src="images/Screenshot 2025-12-30 145836.png" alt="Material comparison">
     </div>
 
     <div class="project-section">
         <h2>Phase 3: Design Challenges and Solutions</h2>
         <p>
-            Engineering analysis revealed extremely high PV values at the vane tips, eliminating polymer materials and necessitating the use of
-            hardened tool steel. To reduce the resulting outward forces on the vanes, a revised vane geometry was developed that allows controlled
-            fluid circulation while maintaining an effective seal. This approach significantly balanced pressure across the vane surfaces, leaving
-            centrifugal force as the primary outward load. To address wear concerns from steel-on-steel contact, precision-machined PEEK inserts
-            were added to the housing. These inserts greatly reduced wear rates and enabled the design to meet its required service life. In
-            addition, inlet and outlet port geometry was optimized to prevent volume changes between vane chambers, minimizing the risk of
-            cavitation.
+            Extremely high PV values at the vane tips required the use of hardened tool steel. A revised vane geometry was developed to balance
+            internal pressures while maintaining sealing performance. Steel-on-steel wear was mitigated using precision-machined PEEK inserts,
+            significantly extending service life. Inlet and outlet port geometry was also optimized to minimize cavitation risk.
         </p>
-       <div class="design-images">
-    <img src="images/vane.png" alt="Vane geometry design">
-    <img src="images/Screenshot 2025-12-30 145807.png" alt="PEEK insert configuration">
-    <img src="images/Screenshot 2026-01-02 111612.png" alt="Pump internal configuration">
-</div>
 
+        <div class="design-images">
+            <img src="images/vane.png" alt="Vane geometry design">
+            <img src="images/Screenshot 2025-12-30 145807.png" alt="PEEK insert configuration">
+            <img src="images/Screenshot 2026-01-02 111612.png" alt="Pump internal configuration">
+        </div>
     </div>
 
     <div class="project-section">
         <h2>Phase 4: Design for Manufacturing</h2>
         <p>
-            Manufacturing considerations were central to the design due to the high annual production volume. The main housing was designed for
-            sand casting using a single-core configuration to reduce tooling complexity and cost. The PEEK inserts were optimized for injection
-            molding to ensure consistent quality and dimensional control at scale. The vanes were designed for powder metal sintering, providing
-            excellent dimensional accuracy and compatibility with hardened tool steel materials.
+            The housing was designed for sand casting with a single-core configuration to minimize tooling complexity. PEEK inserts were optimized
+            for injection molding, and vanes were designed for powder metal sintering to ensure dimensional accuracy at high production volumes.
         </p>
     </div>
 
     <div class="project-section">
         <h2>Phase 5: Technical Documentation</h2>
         <p>
-            The project concluded with the creation of a complete, manufacturing-ready technical drawing package. This included detailed part
-            drawings with full GD&T, casting drawings with pattern and core specifications, and injection molding drawings for polymer inserts.
-            Together, these documents provide a comprehensive reference suitable for direct production implementation.
+            A complete manufacturing-ready drawing package was produced, including detailed part drawings with GD&amp;T, casting drawings, and
+            injection molding documentation. These deliverables support immediate production implementation.
         </p>
 
         <div class="drawings-gallery">
-            <h3 style="color: #1e3c72; margin-bottom: 1rem;">Technical Drawings</h3>
             <div class="pdf-viewer">
-                <iframe src="Documents/Bill of materials Assembly-combined.pdf" style="width: 100%; height: 800px; border: none; border-radius: 8px;"></iframe>
+                <iframe src="Documents/Bill of materials Assembly-combined.pdf"
+                        style="width:100%; height:800px; border:none; border-radius:8px;"></iframe>
             </div>
         </div>
     </div>
 
     <div class="contact-section">
         <h2>Get In Touch</h2>
-        <div class="contact-links">
-            <div class="contact-item">
-                <strong>Email</strong>
-                <a href="mailto:letteney@bu.edu">letteney@bu.edu</a>
-            </div>
-            <div class="contact-item">
-                <strong>LinkedIn</strong>
-                <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a>
-            </div>
-        </div>
+        <p>Email: <a href="mailto:letteney@bu.edu" style="color:white;">letteney@bu.edu</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank" style="color:white;">joseph-letteney1</a></p>
     </div>
 </div>
 
@@ -388,4 +280,3 @@
 
 </body>
 </html>
-
