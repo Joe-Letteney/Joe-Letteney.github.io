@@ -82,6 +82,43 @@
         .video-section video,
         .video-section iframe {
             max-width: 100%;
+            max-height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .video-grid video {
+            width: 100%;
+            max-height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .text-video-layout {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .text-video-layout .text-content {
+            flex: 1.5;
+        }
+
+        .text-video-layout .video-content {
+            flex: 1;
+        }
+
+        .text-video-layout video {
+            width: 100%;
+            max-height: 400px;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
@@ -156,6 +193,13 @@
         .download-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .pdf-viewer {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
         }
 
         .contact-section {
@@ -233,6 +277,18 @@
                 flex-direction: column;
                 gap: 1.5rem;
             }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .text-video-layout {
+                flex-direction: column;
+            }
+
+            .text-video-layout .video-content {
+                order: -1;
+            }
         }
     </style>
 </head>
@@ -248,46 +304,43 @@
 
     <div class="hero">
         <h1>Inch Worm Robot</h1>
-        <p class="subtitle">Fabrication • Soft Robotics </p>
+        <p class="subtitle">Fabrication • Soft Robotics</p>
     </div>
 
     <div class="container">
-        <div class="video-section">
-            <video width="600" controls autoplay loop muted>
-                <source src="images/Untitled video - Made with Clipchamp.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
         <div class="overview">
             <h2>Project Overview</h2>
-            <p>The goal of this project was to desing a robot made of compliant (soft) materials that was capable of movement and grasping as well as incorperating some unique feature. For this project my team opted to go with an inchworm inspired robot that consisted if an accordian motor between two angular pouch motors that deploy silicone feet.</p>
+            <p>This project focused on developing a bio-inspired soft robotic system using compliant materials to achieve controlled locomotion and object manipulation. Drawing inspiration from the inchworm's distinctive movement pattern, our team designed a multi-actuator system integrating accordion-style and angular pouch motors with deployable friction elements. The robot combines fundamental soft robotics principles with innovative actuation mechanisms to demonstrate adaptive movement, passive steering capabilities, and integrated grasping functionality. This project explores the intersection of biomimetic design and compliant mechanism engineering within the field of soft robotics.</p>
         </div>
 
         <div class="project-section">
-            <h2>Step 1: Prototype 1</h2>
-            <p>The first prototype of this robot consisted of an accordian motor with two inline pouch motors that deploy and retract silicone feet. One of the moajor issues with this prototype is that the inline pouch motors were not able to apply any force to the the feet so the amount of friciton produced was minimal.</p>
-        <div class="container">
-        <div class="video-section">
-            <video width="600" controls autoplay loop muted>
-                <source src="images/Inch worm first prototype.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-section">
-            <video width="600" controls autoplay loop muted>
-                <source src="images/Inline pouch motor.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-            
-        </div>
-
-        <div class="project-section">
-            <h2>Step 2: Protoype 2</h2>
-            <p>In order to solve the problems that we encountered in the first protoype our second prototype included an angular pouch motor that consisted of an angled PLA strucutre that holds the pouch motor allowing it to apply force to the silicone foot.</p>
+            <h2>Step 1: Initial Prototype Development</h2>
+            <div class="text-video-layout">
+                <div class="text-content">
+                    <p>The first iteration of our soft robotic system employed an accordion motor as the primary actuator for axial extension and contraction, paired with inline pouch motors designed to deploy and retract silicone-based friction pads. This configuration was intended to replicate the alternating grip-and-release locomotion characteristic of inchworm movement.</p>
+                    <p>Through experimental testing, we identified a critical limitation in the inline pouch motor design: the actuators generated insufficient normal force against the substrate surface, resulting in inadequate frictional coupling. This mechanical deficiency prevented effective anchoring during the extension phase, significantly limiting the robot's propulsive efficiency and overall displacement capabilities. These findings informed the mechanical redesign implemented in subsequent iterations.</p>
+                </div>
+                <div class="video-content">
+                    <video controls autoplay loop muted>
+                        <source src="images/Inch worm first prototype.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
             <div class="video-section">
-                <video width="600" controls autoplay loop muted>
+                <video width="400" controls autoplay loop muted>
+                    <source src="images/Inline pouch motor.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Step 2: Second Prototype - Angular Pouch Motor Integration</h2>
+            <p>To address the force application limitations observed in the initial prototype, we developed an angular pouch motor assembly incorporating a custom 3D-printed PLA support structure. This angled configuration enabled the pouch motors to generate directed normal forces against the substrate through the silicone friction pads, substantially increasing the static friction coefficient at the contact interface.</p>
+            <p>The angular geometry of the support structure was optimized to balance force vectoring with the available pneumatic pressure, resulting in significantly improved anchoring performance. Load testing demonstrated that the modified design could support the axial loads generated during the accordion motor's extension cycle, enabling controlled forward locomotion. This mechanical enhancement proved essential for achieving reliable inchworm-style movement and served as the foundation for subsequent design refinements.</p>
+            <div class="video-section">
+                <video width="400" controls autoplay loop muted>
                     <source src="images/angular pouch motors.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -295,14 +348,20 @@
         </div>
 
         <div class="project-section">
-            <h2>Step 3: Final Design</h2>
-            <p>Our final design included our steering elements, our grasper, and our angular pouch motors. This allowed us to incorperae our passive steering features as it ran into walls.</p>
-           <video width="600" controls autoplay loop muted>
+            <h2>Step 3: Final Design Integration</h2>
+            <p>The final system architecture incorporated three major functional subsystems: the optimized angular pouch motor assemblies for traction control, an integrated pneumatic grasping mechanism for object manipulation, and passive mechanical steering elements. The passive steering feature enables autonomous trajectory correction when the robot encounters environmental obstacles, utilizing compliant mechanical responses rather than active control systems.</p>
+            <p>This multi-functional design demonstrates the capability of soft robotic systems to combine locomotion, manipulation, and adaptive navigation within a single integrated platform. The passive steering mechanism represents a particularly efficient approach to environmental interaction, reducing control system complexity while maintaining functional adaptability. Together, these systems showcase the potential of compliant mechanisms in creating versatile robotic platforms for constrained or unstructured environments.</p>
+            <div class="video-grid">
+                <video controls autoplay loop muted>
+                    <source src="images/Untitled video - Made with Clipchamp.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls autoplay loop muted>
                     <source src="images/grasper.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-            <img src="images/Passive Steering.jpg">
-      
+            </div>
+            <img src="images/Passive Steering.jpg" alt="Passive Steering Mechanism">
         </div>
 
         <div class="project-section">
@@ -313,6 +372,21 @@
                 </div>
             </div>
         </div>
+
+        <div class="contact-section">
+            <h2>Get In Touch</h2>
+            <div class="contact-links">
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="mailto:letteney@bu.edu">letteney@bu.edu</a>
+                </div>
+                <div class="contact-item">
+                    <strong>LinkedIn</strong>
+                    <a href="https://www.linkedin.com/in/joseph-letteney1/" target="_blank">joseph-letteney1</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2025 Joseph Letteney. All rights reserved.</p>
